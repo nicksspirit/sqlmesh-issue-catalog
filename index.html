@@ -1102,6 +1102,94 @@
       overflow-y: auto;
     }
 
+    .notebook-entry {
+      flex-shrink: 0;
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      background-color: var(--bg-surface);
+      overflow: hidden;
+    }
+
+    .notebook-entry-head {
+      padding: 12px 14px;
+      background-color: var(--bg-inset);
+      border-block-end: 1px solid var(--border-subtle);
+    }
+
+    .notebook-entry-head h4 {
+      margin: 0;
+      font-size: 0.88rem;
+    }
+
+    .notebook-entry-caption {
+      margin: 2px 0 0 0;
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+    }
+
+    .notebook-fields {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 10px 12px;
+      margin: 0;
+      padding: 14px;
+    }
+
+    .notebook-fields dt {
+      margin: 0;
+      padding-top: 2px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+    }
+
+    .notebook-fields dd {
+      margin: 0;
+      min-width: 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .notebook-cues {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .notebook-cues li {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.45;
+      background-color: var(--bg-inset);
+      border-radius: 4px;
+      padding: 6px 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .notebook-source {
+      border-block-start: 1px solid var(--border-subtle);
+    }
+
+    .notebook-source summary {
+      cursor: pointer;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: var(--ink-secondary);
+    }
+
+    .notebook-source .md-code-box {
+      margin: 0 14px 14px;
+      max-height: 140px;
+    }
+
+    @media (max-width: 520px) {
+      .notebook-fields { grid-template-columns: minmax(0, 1fr); gap: 2px 0; }
+      .notebook-fields dt { padding-top: 8px; }
+    }
+
     .md-reader-layout {
       display: grid;
       grid-template-columns: 240px minmax(0, 1fr);
@@ -2164,10 +2252,26 @@
             "<h4 style=\"margin:0 0 6px 0;font-size:0.88rem;\">Primary Source Excerpt (GitHub Issue Body — " + it.body_len + " chars)</h4>" +
             "<pre class=\"md-code-box\">" + esc(it.body_excerpt) + "</pre>" +
           "</div>" +
-          "<div>" +
-            "<h4 style=\"margin:0 0 6px 0;font-size:0.88rem;\">Lab Notebook Markdown Entry (03-pillar-catalog.md#issue-" + it.number + ")</h4>" +
-            "<pre class=\"md-code-box\">" + esc(buildIssueMarkdownRow(it)) + "</pre>" +
-          "</div>";
+          "<section class=\"notebook-entry\">" +
+            "<div class=\"notebook-entry-head\">" +
+              "<h4>Catalog entry</h4>" +
+              "<p class=\"notebook-entry-caption\">The row for this issue in 03-pillar-catalog.md.</p>" +
+            "</div>" +
+            "<dl class=\"notebook-fields\">" +
+              "<dt>Issue</dt><dd><a href=\"" + esc(it.url) + "\" target=\"_blank\" rel=\"noopener\" class=\"text-action-link\">#" + it.number + "</a></dd>" +
+              "<dt>Primary</dt><dd><span class=\"pillar-tag pillar-" + it.primary_pillar + "\">" + esc(it.primary_pillar) + "</span></dd>" +
+              "<dt>Secondary</dt><dd>" + (it.secondary_pillar ? "<span class=\"pillar-tag pillar-" + it.secondary_pillar + "\">" + esc(it.secondary_pillar) + "</span>" : "<span style=\"color:var(--ink-muted);\">None</span>") + "</dd>" +
+              "<dt>Triage labels</dt><dd><div class=\"chips-wrap\">" + tChips + "</div></dd>" +
+              "<dt>Metadata labels</dt><dd><div class=\"chips-wrap\">" + mChips + "</div></dd>" +
+              "<dt>Confidence</dt><dd><span class=\"conf-tag conf-" + it.confidence + "\">" + esc(it.confidence) + "</span></dd>" +
+              "<dt>Cue phrases</dt><dd>" + (it.cues.length ? "<ul class=\"notebook-cues\">" + it.cues.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" : "<span style=\"color:var(--ink-muted);\">None recorded</span>") + "</dd>" +
+              "<dt>Rationale</dt><dd>" + esc(it.note) + "</dd>" +
+            "</dl>" +
+            "<details class=\"notebook-source\">" +
+              "<summary>Markdown source</summary>" +
+              "<pre class=\"md-code-box\">" + esc(buildIssueMarkdownRow(it)) + "</pre>" +
+            "</details>" +
+          "</section>";
 
         backdrop.classList.add("open");
         drawer.classList.add("open");
