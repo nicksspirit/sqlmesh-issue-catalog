@@ -866,6 +866,65 @@
       color: var(--ink-secondary);
     }
 
+    .catalog-pager {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .catalog-pager[hidden] { display: none; }
+
+    .catalog-pager-pages {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-btn {
+      appearance: none;
+      border: 1px solid var(--border-line);
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      min-width: 36px;
+      min-height: 36px;
+      padding-block: 6px;
+      padding-inline: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .page-btn[aria-current="page"] {
+      background-color: var(--ink-primary);
+      border-color: var(--ink-primary);
+      color: var(--bg-surface);
+    }
+
+    .page-btn:disabled {
+      color: var(--ink-muted);
+      cursor: default;
+      background-color: var(--bg-inset);
+    }
+
+    .page-ellipsis {
+      color: var(--ink-muted);
+      padding-inline: 4px;
+    }
+
+    .catalog-page-size {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+    }
+
     .table-wrap {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-line);
@@ -1263,6 +1322,725 @@
       align-items: center;
       gap: 12px;
     }
+
+    .nav-btn.slide-launch-btn {
+      background-color: var(--ink-primary);
+      border-color: var(--ink-primary);
+      color: var(--bg-surface);
+      font-weight: 700;
+    }
+    .nav-btn.slide-launch-btn:hover {
+      background-color: #1E293B;
+      color: var(--bg-surface);
+    }
+    .nav-btn.slide-launch-btn .nav-count {
+      background-color: rgba(255, 255, 255, 0.16);
+      color: #FFFFFF;
+    }
+
+    
+    /* ==========================================================================
+       HTML-PPT STUDIO SLIDE MODE (Guided by lewislulu/html-ppt-skill)
+       Token-driven themes + chrome slots + entry animations + Presenter Studio
+       ========================================================================== */
+    .slide-deck-overlay {
+      /* Default Theme: engineering-whiteprint */
+      --deck-bg: #F4F6FA;
+      --deck-bg-pattern: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+      --deck-surface: #FFFFFF;
+      --deck-surface-2: #EAEFF6;
+      --deck-text-1: #0F172A;
+      --deck-text-2: #334155;
+      --deck-text-3: #64748B;
+      --deck-border: #CBD5E1;
+      --deck-accent: #175CD3;
+      --deck-accent-ink: #FFFFFF;
+      --deck-accent-soft: rgba(23, 92, 211, 0.11);
+      --deck-code-bg: #0F172A;
+      --deck-code-fg: #E2E8F0;
+      --deck-rel: #D92D20;
+      --deck-ado: #079455;
+      --deck-sca: #1570EF;
+      --deck-ext: #6938EF;
+      --deck-warn-bg: rgba(217, 45, 32, 0.09);
+      --deck-warn-border: rgba(217, 45, 32, 0.35);
+
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background-color: var(--deck-bg);
+      background-image: var(--deck-bg-pattern);
+      background-size: 22px 22px;
+      color: var(--deck-text-1);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .slide-deck-overlay.open {
+      display: flex;
+    }
+
+    /* Theme 2: tokyo-night (html-ppt-skill engineering tech-sharing default) */
+    .slide-deck-overlay[data-theme="tokyo-night"] {
+      --deck-bg: #1A1B26;
+      --deck-bg-pattern: radial-gradient(rgba(122, 162, 247, 0.12) 1px, transparent 1px);
+      --deck-surface: #24283B;
+      --deck-surface-2: #1F2335;
+      --deck-text-1: #C0CAF5;
+      --deck-text-2: #A9B1D6;
+      --deck-text-3: #787C99;
+      --deck-border: #3B4261;
+      --deck-accent: #7AA2F7;
+      --deck-accent-ink: #15161E;
+      --deck-accent-soft: rgba(122, 162, 247, 0.16);
+      --deck-code-bg: #15161E;
+      --deck-code-fg: #C0CAF5;
+      --deck-rel: #F7768E;
+      --deck-ado: #9ECE6A;
+      --deck-sca: #7AA2F7;
+      --deck-ext: #BB9AF7;
+      --deck-warn-bg: rgba(247, 118, 142, 0.13);
+      --deck-warn-border: rgba(247, 118, 142, 0.42);
+    }
+
+    /* Theme 3: blueprint (architectural CAD drafting blue) */
+    .slide-deck-overlay[data-theme="blueprint"] {
+      --deck-bg: #0B1D3A;
+      --deck-bg-pattern:
+        linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+      --deck-surface: #11294D;
+      --deck-surface-2: #0E2240;
+      --deck-text-1: #F0F9FF;
+      --deck-text-2: #BAE6FD;
+      --deck-text-3: #7DD3FC;
+      --deck-border: #1E4976;
+      --deck-accent: #38BDF8;
+      --deck-accent-ink: #082F49;
+      --deck-accent-soft: rgba(56, 189, 248, 0.16);
+      --deck-code-bg: #071326;
+      --deck-code-fg: #E0F2FE;
+      --deck-rel: #FB7185;
+      --deck-ado: #34D399;
+      --deck-sca: #38BDF8;
+      --deck-ext: #C084FC;
+      --deck-warn-bg: rgba(251, 113, 133, 0.14);
+      --deck-warn-border: rgba(251, 113, 133, 0.45);
+    }
+
+    /* Theme 4: catppuccin-mocha */
+    .slide-deck-overlay[data-theme="catppuccin-mocha"] {
+      --deck-bg: #1E1E2E;
+      --deck-bg-pattern: radial-gradient(rgba(203, 166, 247, 0.11) 1px, transparent 1px);
+      --deck-surface: #313244;
+      --deck-surface-2: #181825;
+      --deck-text-1: #CDD6F4;
+      --deck-text-2: #BAC2DE;
+      --deck-text-3: #9399B2;
+      --deck-border: #45475A;
+      --deck-accent: #89B4FA;
+      --deck-accent-ink: #11111B;
+      --deck-accent-soft: rgba(137, 180, 250, 0.16);
+      --deck-code-bg: #11111B;
+      --deck-code-fg: #CDD6F4;
+      --deck-rel: #F38BA8;
+      --deck-ado: #A6E3A1;
+      --deck-sca: #89B4FA;
+      --deck-ext: #CBA6F7;
+      --deck-warn-bg: rgba(243, 139, 168, 0.14);
+      --deck-warn-border: rgba(243, 139, 168, 0.45);
+    }
+
+    /* Theme 5: corporate-clean */
+    .slide-deck-overlay[data-theme="corporate-clean"] {
+      --deck-bg: #FFFFFF;
+      --deck-bg-pattern: none;
+      --deck-surface: #F8FAFC;
+      --deck-surface-2: #F1F5F9;
+      --deck-text-1: #090D16;
+      --deck-text-2: #334155;
+      --deck-text-3: #64748B;
+      --deck-border: #E2E8F0;
+      --deck-accent: #0F172A;
+      --deck-accent-ink: #FFFFFF;
+      --deck-accent-soft: rgba(15, 23, 42, 0.08);
+      --deck-code-bg: #0F172A;
+      --deck-code-fg: #F8FAFC;
+      --deck-rel: #B42318;
+      --deck-ado: #067647;
+      --deck-sca: #175CD3;
+      --deck-ext: #5925DC;
+      --deck-warn-bg: #FEF3F2;
+      --deck-warn-border: #FDA29B;
+    }
+
+    /* Preview-only mode (?preview=N) hides deck chrome per html-ppt-skill */
+    body.preview-single-mode .app-shell {
+      display: none !important;
+    }
+    body.preview-single-mode .slide-deck-overlay {
+      display: flex !important;
+    }
+    body.preview-single-mode .deck-header,
+    body.preview-single-mode .deck-footer,
+    body.preview-single-mode .deck-progress-track {
+      display: none !important;
+    }
+
+    /* Deck Progress Bar & Chrome Slots (.deck-header, .deck-footer) */
+    .deck-progress-track {
+      width: 100%;
+      height: 4px;
+      background-color: var(--deck-surface-2);
+      flex-shrink: 0;
+    }
+
+    .deck-progress-fill {
+      height: 100%;
+      background-color: var(--deck-accent);
+      width: 10%;
+      transition: width 0.22s ease;
+    }
+
+    .deck-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px clamp(16px, 3vw, 36px);
+      background-color: var(--deck-surface);
+      border-block-end: 1px solid var(--deck-border);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .deck-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--deck-text-1);
+    }
+
+    .deck-chapter-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background-color: var(--deck-accent-soft);
+      color: var(--deck-text-1);
+    }
+
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .deck-btn {
+      appearance: none;
+      border: 1px solid var(--deck-border);
+      background-color: var(--deck-surface-2);
+      color: var(--deck-text-1);
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .deck-btn:hover {
+      border-color: var(--deck-accent);
+    }
+
+    .deck-btn.accent {
+      background-color: var(--deck-accent);
+      border-color: var(--deck-accent);
+      color: var(--deck-accent-ink);
+    }
+
+    .deck-kbd {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 1px 4px;
+      border-radius: 3px;
+      background-color: rgba(127, 127, 127, 0.18);
+      color: inherit;
+    }
+
+    /* Slide Stage: one .slide per logical page; .slide.is-active visible */
+    .deck-stage {
+      flex: 1 1 auto;
+      min-height: 0;
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      overflow-y: auto;
+      padding: clamp(16px, 2.6vw, 34px) clamp(18px, 4vw, 56px);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1260px;
+      margin: auto;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(16px, 2.2vh, 26px);
+      min-width: 0;
+    }
+
+    .slide.is-active {
+      display: flex;
+    }
+
+    /* Speaker notes are NEVER visible on the slide itself (html-ppt-skill rule) */
+    .slide aside.notes,
+    .slide .notes {
+      display: none !important;
+    }
+
+    /* CSS Entry Animations (toggled via A key) */
+    @keyframes pptFadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pptRiseScale {
+      from { opacity: 0; transform: scale(0.975) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .slide-deck-overlay[data-anim="fade-up"] .slide.is-active .anim-in {
+      animation: pptFadeUp 0.34s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    .slide-deck-overlay[data-anim="rise-scale"] .slide.is-active .anim-in {
+      animation: pptRiseScale 0.34s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    .slide-deck-overlay .slide.is-active .anim-d1 { animation-delay: 0.05s; }
+    .slide-deck-overlay .slide.is-active .anim-d2 { animation-delay: 0.11s; }
+    .slide-deck-overlay .slide.is-active .anim-d3 { animation-delay: 0.17s; }
+
+    /* Slide Typography & Layout Primitives */
+    .slide-head {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 82ch;
+    }
+
+    .slide-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .slide-act-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 5px;
+      background-color: var(--deck-accent);
+      color: var(--deck-accent-ink);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .slide-layout-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--deck-text-3);
+    }
+
+    .slide-h1 {
+      margin: 0;
+      font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      color: var(--deck-text-1);
+    }
+
+    .slide-h2 {
+      margin: 0;
+      font-size: clamp(1.38rem, 2.3vw, 1.95rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.18;
+      color: var(--deck-text-1);
+    }
+
+    .slide-lead {
+      margin: 0;
+      font-size: clamp(0.94rem, 1.25vw, 1.08rem);
+      color: var(--deck-text-2);
+      max-width: 76ch;
+    }
+
+    .slide-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .slide-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .slide-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .slide-grid-2, .slide-grid-3, .slide-grid-4 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .slide-card {
+      background-color: var(--deck-surface);
+      border: 1px solid var(--deck-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .slide-card.alert-card {
+      background-color: var(--deck-warn-bg);
+      border-color: var(--deck-warn-border);
+    }
+
+    .slide-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--deck-text-1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .slide-card p, .slide-card li {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--deck-text-2);
+      line-height: 1.5;
+    }
+
+    .slide-card ul {
+      margin: 0;
+      padding-inline-start: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    /* Theme-adaptive SVG contrast tokens inside Slide Mode */
+    .slide-deck-overlay .svg-row-label,
+    .slide-deck-overlay .svg-bar-top-num,
+    .slide-deck-overlay .donut-center-big,
+    .slide-deck-overlay .svg-matrix-title {
+      fill: var(--deck-text-1);
+    }
+    .slide-deck-overlay .svg-val-label,
+    .slide-deck-overlay .donut-center-sub {
+      fill: var(--deck-text-2);
+    }
+    .slide-deck-overlay .svg-axis-num {
+      fill: var(--deck-text-3);
+    }
+    .slide-deck-overlay .donut-legend-item {
+      background-color: var(--deck-surface-2);
+      border-color: var(--deck-border);
+      color: var(--deck-text-1);
+    }
+    .slide-deck-overlay .legend-pct {
+      color: var(--deck-text-2);
+    }
+
+    .slide-big-stat {
+      font-family: var(--font-mono);
+      font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.05;
+      color: var(--deck-text-1);
+    }
+
+    .slide-code {
+      background-color: var(--deck-code-bg);
+      color: var(--deck-code-fg);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      padding: 12px 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .slide-issue-btn {
+      appearance: none;
+      border: 1px solid var(--deck-border);
+      background-color: var(--deck-surface-2);
+      color: var(--deck-accent);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .slide-issue-btn:hover {
+      background-color: var(--deck-accent);
+      color: var(--deck-accent-ink);
+      border-color: var(--deck-accent);
+    }
+
+    /* Pipeline / Architecture Flow Diagram Boxes (Slide 4) */
+    .arch-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .arch-flow { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .arch-stage {
+      background-color: var(--deck-surface);
+      border: 1px solid var(--deck-border);
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .arch-stage.bottleneck {
+      border-width: 2px;
+      border-color: var(--deck-rel);
+    }
+
+    /* Compact Slide Table (Slide 8) */
+    .slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    .slide-table th {
+      text-align: start;
+      padding: 8px 10px;
+      border-block-end: 2px solid var(--deck-border);
+      color: var(--deck-text-3);
+      font-size: 0.78rem;
+    }
+    .slide-table td {
+      padding: 8px 10px;
+      border-block-end: 1px solid var(--deck-border);
+      color: var(--deck-text-1);
+    }
+
+    /* Deck Footer */
+    .deck-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px clamp(16px, 3vw, 36px);
+      background-color: var(--deck-surface);
+      border-block-start: 1px solid var(--deck-border);
+      font-size: 0.78rem;
+      color: var(--deck-text-3);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .deck-nav-cluster {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slide-number {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--deck-text-1);
+      min-width: 58px;
+      text-align: center;
+    }
+
+    /* Overview Grid Modal (O key) */
+    .deck-overview-modal {
+      position: absolute;
+      inset: 49px 0 42px 0;
+      background-color: var(--deck-bg);
+      z-index: 70;
+      padding: 28px clamp(20px, 4vw, 48px);
+      overflow-y: auto;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .deck-overview-modal.open { display: flex; }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .overview-thumb {
+      appearance: none;
+      text-align: start;
+      background-color: var(--deck-surface);
+      border: 1px solid var(--deck-border);
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      color: var(--deck-text-1);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .overview-thumb:hover,
+    .overview-thumb[aria-current="true"] {
+      border-color: var(--deck-accent);
+      box-shadow: 0 0 0 2px var(--deck-accent-soft);
+    }
+
+    /* Quick Bottom Notes Drawer (N key) */
+    .deck-notes-drawer {
+      background-color: var(--deck-surface);
+      border-block-start: 2px solid var(--deck-accent);
+      padding: 16px clamp(20px, 4vw, 48px);
+      max-height: 30dvh;
+      overflow-y: auto;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .deck-notes-drawer.open { display: flex; }
+    .deck-notes-drawer p {
+      margin: 0;
+      max-width: 85ch;
+      font-size: 0.92rem;
+      color: var(--deck-text-1);
+    }
+
+    /* S-Key 4-Card Presenter Studio Overlay (CURRENT / NEXT / SPEAKER SCRIPT / TIMER) */
+    .presenter-studio {
+      position: absolute;
+      inset: 49px 0 42px 0;
+      background-color: #0F172A;
+      color: #F8FAFC;
+      z-index: 75;
+      padding: 20px;
+      display: none;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+    .presenter-studio.open {
+      display: grid;
+    }
+    @media (max-width: 900px) {
+      .presenter-studio {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        overflow-y: auto;
+      }
+    }
+
+    .p-card {
+      background-color: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .p-card-head {
+      padding: 8px 14px;
+      background-color: #0F172A;
+      border-block-end: 1px solid #334155;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .p-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-inline-end: 6px;
+    }
+    .p-card-body {
+      padding: 16px;
+      overflow-y: auto;
+      flex: 1 1 auto;
+    }
+    .p-script-body {
+      font-size: 1.06rem;
+      line-height: 1.62;
+      color: #F1F5F9;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .p-script-body p { margin: 0; }
+    .p-script-body strong { color: #FDBA74; font-weight: 700; }
+    .p-script-body code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background-color: #0F172A;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #7DD3FC;
+    }
+    .p-timer-clock {
+      font-family: var(--font-mono);
+      font-size: 2.6rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: #4ADE80;
+      margin: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -1278,7 +2056,11 @@
       </div>
 
       <nav class="nav-group" aria-label="Primary views">
-        <p class="nav-group-heading">Views</p>
+        <p class="nav-group-heading">Views &amp; Story</p>
+        <button type="button" class="nav-btn slide-launch-btn" id="btn-launch-slides-sidebar" title="Launch 10-slide engineering story deck (Shortcut: P)">
+          <span>Slide Story Mode</span>
+          <span class="nav-count">10 slides</span>
+        </button>
         <button type="button" class="nav-btn" data-view="overview" aria-current="page">
           <span>Overview &amp; Charts</span>
           <span class="nav-count">6 charts</span>
@@ -1350,8 +2132,9 @@
             </p>
           </div>
           <div class="header-actions">
+            <button type="button" class="btn-control primary" id="btn-launch-slides-top">Present Story (10 Slides)</button>
             <button type="button" class="btn-control" data-jump-view="catalog">Browse all 211 issues</button>
-            <button type="button" class="btn-control primary" id="btn-export-csv-top">Download CSV catalog</button>
+            <button type="button" class="btn-control" id="btn-export-csv-top">Download CSV catalog</button>
           </div>
         </header>
 
@@ -1700,6 +2483,16 @@
             <button type="button" class="btn-control" id="btn-empty-reset">Reset all filters</button>
           </div>
         </div>
+        <nav class="catalog-pager" id="catalog-pager" aria-label="Issue pages" hidden>
+          <div class="catalog-pager-pages" id="catalog-pager-pages"></div>
+          <label class="catalog-page-size">Rows
+            <select id="catalog-page-size" class="select-control">
+              <option value="25" selected>25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </label>
+        </nav>
       </section>
 
       <!-- ====================================================================
@@ -1733,6 +2526,659 @@
 
     </main>
   </div>
+
+  
+  <!-- ======================================================================
+       HTML-PPT STUDIO SLIDE MODE OVERLAY (10-Slide Cohesive Engineering Story)
+       ====================================================================== -->
+  <div class="slide-deck-overlay" id="slide-deck-overlay" data-theme="engineering-whiteprint" data-anim="fade-up" role="region" aria-label="Engineering Presentation Slide Mode">
+    <div class="deck-progress-track" aria-hidden="true">
+      <div class="deck-progress-fill" id="deck-progress-fill"></div>
+    </div>
+
+    <header class="deck-header">
+      <div class="deck-brand">
+        <span class="brand-glyph" aria-hidden="true">SM</span>
+        <span>SQLMesh Backlog Story</span>
+        <span class="deck-chapter-pill" id="deck-chapter-label">01 / Cover</span>
+      </div>
+
+      <div class="deck-controls">
+        <button type="button" class="deck-btn" id="btn-deck-theme" title="Cycle presentation theme (Shortcut: T)">
+          <span>Theme: <strong id="deck-theme-name">whiteprint</strong></span>
+          <span class="deck-kbd">T</span>
+        </button>
+        <button type="button" class="deck-btn" id="btn-deck-anim" title="Cycle slide entry animation (Shortcut: A)">
+          <span>Anim: <strong id="deck-anim-name">fade-up</strong></span>
+          <span class="deck-kbd">A</span>
+        </button>
+        <button type="button" class="deck-btn" id="btn-deck-overview" title="Toggle 10-slide overview grid (Shortcut: O)">
+          <span>Overview</span>
+          <span class="deck-kbd">O</span>
+        </button>
+        <button type="button" class="deck-btn" id="btn-deck-notes" title="Toggle speaker script bar (Shortcut: N)">
+          <span>Notes</span>
+          <span class="deck-kbd">N</span>
+        </button>
+        <button type="button" class="deck-btn" id="btn-deck-presenter" title="Toggle 4-Card Presenter Studio (Shortcut: S)">
+          <span>Presenter</span>
+          <span class="deck-kbd">S</span>
+        </button>
+        <button type="button" class="deck-btn" id="btn-deck-fullscreen" title="Toggle fullscreen (Shortcut: F)">
+          <span>Fullscreen</span>
+          <span class="deck-kbd">F</span>
+        </button>
+        <button type="button" class="deck-btn accent" id="btn-exit-slides" title="Return to interactive dashboard (Shortcut: Esc)">
+          <span>Exit to Dashboard</span>
+          <span class="deck-kbd">Esc</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="deck-stage" id="deck-stage">
+
+      <!-- SLIDE 1: COVER -->
+      <section class="slide is-active" data-slide-idx="0" data-chapter="01 / Cover" data-title="Where 211 Open SQLMesh Issues Actually Point" data-layout="cover">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">SQLMesh/sqlmesh Engineering Audit</span>
+            <span class="slide-layout-tag">Snapshot: Nov 20, 2026 | Linux Foundation Governance</span>
+          </div>
+          <h1 class="slide-h1">Where 211 Open SQLMesh Issues Actually Point</h1>
+          <p class="slide-lead">
+            An exhaustive, zero-sampling walkthrough of every open GitHub issue and repository label—translating a flat 211-item queue into a concrete engineering roadmap across <strong>Reliability</strong>, <strong>Scalability</strong>, <strong>Adoption</strong>, and <strong>Extensibility</strong>.
+          </p>
+        </div>
+
+        <div class="slide-grid-4 anim-in anim-d1">
+          <div class="slide-card">
+            <span class="slide-layout-tag">Exhaustive Scope</span>
+            <div class="slide-big-stat">211</div>
+            <p>Open issues read end-to-end (<code>#1391</code>–<code>#6228</code>); <strong>106 open PRs</strong> excluded cleanly.</p>
+          </div>
+          <div class="slide-card">
+            <span class="slide-layout-tag">Dominant Signal</span>
+            <div class="slide-big-stat" style="color:var(--deck-rel);">50.7%</div>
+            <p><strong>107 issues</strong> map primarily to <strong>Reliability</strong>, led by silent data-loss and state bugs.</p>
+          </div>
+          <div class="slide-card">
+            <span class="slide-layout-tag">Routing Blind Spot</span>
+            <div class="slide-big-stat" style="color:var(--deck-sca);">72.0%</div>
+            <p><strong>152 of 211</strong> open issues carry zero domain or engine triage routing labels.</p>
+          </div>
+          <div class="slide-card">
+            <span class="slide-layout-tag">Post-LF Inflection</span>
+            <div class="slide-big-stat">50.0%</div>
+            <p>Issues opened since the <strong>Mar 25, 2026</strong> Linux Foundation transfer with zero labels at all.</p>
+          </div>
+        </div>
+
+        <div class="slide-card anim-in anim-d2" style="flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
+          <p style="margin:0;">
+            <strong>Interactive Deck Tip:</strong> Every issue chip (like <button type="button" class="slide-issue-btn" data-inspect="6087">#6087</button> or <button type="button" class="slide-issue-btn" data-inspect="6014">#6014</button>) opens the live GitHub &amp; Markdown inspector right over the slide. Use <code>←</code> / <code>→</code> to navigate, <code>T</code> to switch engineering themes, or <code>S</code> for Presenter Studio with speaker scripts.
+          </p>
+          <button type="button" class="deck-btn accent" data-goto-slide="1">Begin Story (Slide 2)</button>
+        </div>
+
+        <aside class="notes">
+          <p>Hey everyone—thanks for making time. Today we are looking at <strong>every single open issue</strong> in <code>SQLMesh/sqlmesh</code>—all <strong>211 of them</strong>, after stripping out the 106 open pull requests so we don't muddy issue triage with in-flight code.</p>
+          <p>Why did we run a 100% manual pass instead of sampling? Because when a project moves into <strong>Linux Foundation governance</strong>, intuition about the backlog goes stale fast. People assume half the queue is niche warehouse feature requests.</p>
+          <p>The data says the exact opposite: <strong>50.7% of our open backlog is Reliability</strong>, and <strong>72% of open issues have zero routing labels</strong>. Over the next nine slides, we'll walk through what's actually breaking, where large deployments hit quadratic walls, what blocks dbt migrants, and how we fix intake in one afternoon. And if anyone wants to inspect a specific ticket live, every issue number on these slides is clickable.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 2: KPI + PROPORTION OVERVIEW -->
+      <section class="slide" data-slide-idx="1" data-chapter="02 / Four Pillars" data-title="Half the Backlog Is Reliability—While Adoption Touches 57%" data-layout="kpi-grid">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">Backlog Shape</span>
+            <span class="slide-layout-tag">Primary Pillar vs. Multi-Pillar Co-Occurrence (137 issues span 2 pillars)</span>
+          </div>
+          <h2 class="slide-h2">Half the Backlog Is Reliability—While Adoption Touches 57%</h2>
+          <p class="slide-lead">
+            Counting only primary pillars tells half the story: <strong>64.9% (137/211)</strong> of issues carry a secondary pillar because reliability crashes and `O(N²)` planner stalls directly surface during dbt migration and day-to-day CLI onboarding.
+          </p>
+        </div>
+
+        <div class="slide-grid-2 anim-in anim-d1">
+          <div class="slide-card" style="justify-content:center;">
+            <h3><span>Primary Pillar Share (n = 211)</span><span class="slide-layout-tag">Click slice to filter</span></h3>
+            <div class="donut-layout"><svg viewBox="0 0 230 230" class="chart-svg donut-svg" role="img" aria-label="Primary pillar donut chart"><circle cx="115.0" cy="115.0" r="78.0" fill="none" stroke="#EDF1F6" stroke-width="32.0"></circle><circle class="svg-clickable" data-chart-pillar="Reliability" cx="115.0" cy="115.0" r="78.0" fill="none" stroke="#D92D20" stroke-width="32.0" stroke-dasharray="247.03 490.09" stroke-dashoffset="-0.00" transform="rotate(-90 115.0 115.0)"><title>Reliability: 107 open issues (50.7%) — click to filter</title></circle><circle class="svg-clickable" data-chart-pillar="Adoption" cx="115.0" cy="115.0" r="78.0" fill="none" stroke="#079455" stroke-width="32.0" stroke-dasharray="119.28 490.09" stroke-dashoffset="-248.53" transform="rotate(-90 115.0 115.0)"><title>Adoption: 52 open issues (24.6%) — click to filter</title></circle><circle class="svg-clickable" data-chart-pillar="Scalability" cx="115.0" cy="115.0" r="78.0" fill="none" stroke="#1570EF" stroke-width="32.0" stroke-dasharray="77.47 490.09" stroke-dashoffset="-369.31" transform="rotate(-90 115.0 115.0)"><title>Scalability: 34 open issues (16.1%) — click to filter</title></circle><circle class="svg-clickable" data-chart-pillar="Extensibility" cx="115.0" cy="115.0" r="78.0" fill="none" stroke="#6938EF" stroke-width="32.0" stroke-dasharray="33.34 490.09" stroke-dashoffset="-448.28" transform="rotate(-90 115.0 115.0)"><title>Extensibility: 15 open issues (7.1%) — click to filter</title></circle><circle class="svg-clickable" data-chart-pillar="Uncategorized" cx="115.0" cy="115.0" r="78.0" fill="none" stroke="#667085" stroke-width="32.0" stroke-dasharray="5.47 490.09" stroke-dashoffset="-483.12" transform="rotate(-90 115.0 115.0)"><title>Uncategorized: 3 open issues (1.4%) — click to filter</title></circle><text x="115.0" y="109.0" text-anchor="middle" class="donut-center-big">211</text><text x="115.0" y="130.0" text-anchor="middle" class="donut-center-sub">open issues</text></svg><div class="donut-legend"><button type="button" class="donut-legend-item" data-chart-pillar="Reliability" title="Filter catalog to Reliability (107 issues)"><span class="legend-swatch" style="background:#D92D20"></span><span class="legend-name">Reliability</span><span class="legend-stat">107 <span class="legend-pct">(50.7%)</span></span></button><button type="button" class="donut-legend-item" data-chart-pillar="Adoption" title="Filter catalog to Adoption (52 issues)"><span class="legend-swatch" style="background:#079455"></span><span class="legend-name">Adoption</span><span class="legend-stat">52 <span class="legend-pct">(24.6%)</span></span></button><button type="button" class="donut-legend-item" data-chart-pillar="Scalability" title="Filter catalog to Scalability (34 issues)"><span class="legend-swatch" style="background:#1570EF"></span><span class="legend-name">Scalability</span><span class="legend-stat">34 <span class="legend-pct">(16.1%)</span></span></button><button type="button" class="donut-legend-item" data-chart-pillar="Extensibility" title="Filter catalog to Extensibility (15 issues)"><span class="legend-swatch" style="background:#6938EF"></span><span class="legend-name">Extensibility</span><span class="legend-stat">15 <span class="legend-pct">(7.1%)</span></span></button><button type="button" class="donut-legend-item" data-chart-pillar="Uncategorized" title="Filter catalog to Uncategorized (3 issues)"><span class="legend-swatch" style="background:#667085"></span><span class="legend-name">Uncategorized</span><span class="legend-stat">3 <span class="legend-pct">(1.4%)</span></span></button></div></div>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>How the Four Pillars Stack Up</span><span class="slide-layout-tag">Primary + Secondary Touch</span></h3>
+            <ul>
+              <li><strong style="color:var(--deck-rel);">Reliability — 107 Primary (50.7%) | +17 Secondary (58.8% touch):</strong> Silent row loss, false-passing audits, SCD2 history wipes, VDE view leaks, and state-sync deadlocks. Always prioritized first.</li>
+              <li><strong style="color:var(--deck-ado);">Adoption — 52 Primary (24.6%) | +69 Secondary (57.3% touch):</strong> dbt `manifest.json` &amp; Jinja parity, Entra ID/OAuth setup, scenario walkthroughs, and missing model names in stack traces.</li>
+              <li><strong style="color:var(--deck-sca);">Scalability — 34 Primary (16.1%) | +31 Secondary (30.8% touch):</strong> Full-repo `Context.load()` tax on dev commands, `O(N²)` virtual-layer promotion, column-level lineage pruning, and warehouse scan cost.</li>
+              <li><strong style="color:var(--deck-ext);">Extensibility — 15 Primary (7.1%) | +20 Secondary (16.6% touch):</strong> SQL-defined macros, Ossie semantic layer export, ADBC drivers, and config hooks so teams stop forking `EngineAdapter`.</li>
+              <li><strong>Uncategorized — 3 Primary (1.4%):</strong> Pure repo CI tech debt (<button type="button" class="slide-issue-btn" data-inspect="6147">#6147</button>), `psycopg3` driver swap (<button type="button" class="slide-issue-btn" data-inspect="3451">#3451</button>), and a constant-limit question (<button type="button" class="slide-issue-btn" data-inspect="5581">#5581</button>)—never force-fit.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>Look at the split between <strong>Primary Pillar</strong> on the left and <strong>Total Touch Rate</strong> on the right. Every issue gets one primary home based on our tie-breaker: a broken contract always beats surrounding context.</p>
+          <p>That puts <strong>Reliability at 107 issues—50.7%</strong>. Under SQLMesh's own priorities, Reliability always goes first because trust in virtual data environments and incremental state is the whole product.</p>
+          <p>Now look at <strong>Adoption</strong>: it's <strong>24.6% primary</strong> (52 issues), but it shows up as the <strong>secondary pillar on 69 more issues</strong>—meaning <strong>57.3% of the entire backlog</strong> impacts onboarding, dbt migration, or day-to-day developer ergonomics. Meanwhile, <strong>Scalability sits at 16.1%</strong> (34 tightly clustered architectural issues), <strong>Extensibility is 7.1%</strong> (15 high-leverage plugin/hook seams), and we kept <strong>3 issues Uncategorized</strong> rather than forcing internal test-runner chores into product pillars. Let's open Act I on Reliability.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 3: ACT I - RELIABILITY -->
+      <section class="slide" data-slide-idx="2" data-chapter="03 / Act I: Reliability" data-title="Act I — Reliability (107): Stop Silent Data Corruption First" data-layout="testing-safety-alert">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag" style="background:var(--deck-rel);color:#FFF;">Act I — Reliability (107 Primary | 50.7%)</span>
+            <span class="slide-layout-tag">13+ Silent Data-Loss &amp; False-Green Defects</span>
+          </div>
+          <h2 class="slide-h2">Loud Crashes Are Annoying; Silent Wrong Data Is Existential</h2>
+          <p class="slide-lead">
+            Within the 107 Reliability issues, the highest-urgency cluster isn't syntax tracebacks—it's <strong>pipelines that exit 0 while dropping columns, truncating keys, or serving stale production tables</strong>.
+          </p>
+        </div>
+
+        <div class="slide-grid-3 anim-in anim-d1">
+          <div class="slide-card alert-card">
+            <h3><span>1. Silent Row &amp; Schema Loss</span><span class="slide-layout-tag">Exit 0 + Bad Data</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6087">#6087</button> <strong>ClickHouse `_exchange_tables`:</strong> Catches and discards `DatabaseError` without `else: raise`—reports success over stale prod data.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6171">#6171</button> <strong>ClickHouse `insert_quorum`:</strong> Hardcodes `"auto"`, overriding user config and dropping rows on lagging replicas.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6212">#6212</button> <strong>`UNION BY NAME` drop:</strong> Derives target table schema from branch 1 only—silently omits extra columns from later branches.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6135">#6135</button> <strong>`SEED` CSV corruption:</strong> Pandas inference strips leading zeros (`00123` -&gt; `123`) and corrupts `BIGINT &gt; 2^53` before casting.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card alert-card">
+            <h3><span>2. History &amp; Audit Hazards</span><span class="slide-layout-tag">Broken Safety Nets</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6198">#6198</button> <strong>`at_least_one` audit bug:</strong> Uses `GROUP BY 1`, returning 0 rows on an empty table—which SQLMesh treats as <strong>audit PASS</strong>!</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5332">#5332</button> <button type="button" class="slide-issue-btn" data-inspect="5757">#5757</button> <strong>SCD Type 2 `COALESCE`:</strong> Overwrites legitimate historical `NULL`s and mishandles `value -&gt; NULL` erasures.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5744">#5744</button> <strong>SCD2 history wipe:</strong> New snapshot IDs run `truncate=True`, erasing accumulated rolling-window history.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5146">#5146</button> <strong>MSSQL `table_diff`:</strong> Truncates composite join keys to `VARCHAR(30)`, reporting false diff collisions without error.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>3. Concurrency, Hangs &amp; Leaks</span><span class="slide-layout-tag">Runtime Stability</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="3866">#3866</button> <strong>Concurrent `plan` race:</strong> Overlapping plans insert duplicate physical rows before bailing out at final check.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5643">#5643</button> <strong>Virtual-layer race:</strong> `ThreadPoolExecutor` view updates intermittently fail with `UndefinedTable`.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6203">#6203</button> <strong>`O(2^n)` loader hang:</strong> `DIALECT_PATTERN` regex backtracks exponentially on files with multiple `/* */` comments.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6201">#6201</button> <strong>Multithreaded `fork()` segfault</strong> in `sqlfluff-templater-sqlmesh`; <button type="button" class="slide-issue-btn" data-inspect="6125">#6125</button> Spark temp-view driver memory leak.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>When engineers hear "107 bugs," the natural question is: how many are edge-case dialect quirks versus real production landmines? So we separated loud parser errors from <strong>silent data corruption</strong>.</p>
+          <p>Look at Card 1. In <strong>#6087</strong>, ClickHouse's <code>_exchange_tables</code> has an exception handler with no <code>else: raise</code>—if an atomic swap fails with an unexpected <code>DatabaseError</code>, SQLMesh swallows it and marks the run green over stale production data. In <strong>#6212</strong>, <code>UNION BY NAME</code> builds the table schema from only the first branch and silently drops columns from later branches. In <strong>#6135</strong>, <code>SEED</code> models let pandas infer CSV types before reading declared column types, turning zip codes like <code>00123</code> into <code>123</code>.</p>
+          <p>And look at Card 2: <strong>#6198</strong> shows the built-in <code>at_least_one</code> audit silently passes when a table has zero rows! Seven of these silent-corruption tickets currently sit in GitHub with <strong>zero labels</strong>. Fixing this cluster is our single highest-ROI engineering sprint.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 4: ACT II - SCALABILITY -->
+      <section class="slide" data-slide-idx="3" data-chapter="04 / Act II: Scalability" data-title="Act II — Scalability (34): Why Dev Plans Stall at 2,400 Models" data-layout="arch-diagram">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag" style="background:var(--deck-sca);color:#FFF;">Act II — Scalability (34 Primary | 16.1%)</span>
+            <span class="slide-layout-tag">Planner Complexity, Subgraph Loading &amp; Warehouse Compute</span>
+          </div>
+          <h2 class="slide-h2">Dev Workflows Scale with Repo Size Instead of Diff Size</h2>
+          <p class="slide-lead">
+            SQLMesh's killer promise is instant, cheap Virtual Data Environments—yet two pure-Python bottlenecks make local `plan`, `render`, and `test` slow to a crawl once repositories pass 500–2,400 models.
+          </p>
+        </div>
+
+        <div class="arch-flow anim-in anim-d1">
+          <div class="arch-stage bottleneck">
+            <span class="slide-layout-tag" style="color:var(--deck-rel);font-weight:700;">Bottleneck 1: Full Context.load()</span>
+            <h3 style="margin:0;font-size:0.95rem;">1. Parse &amp; Load Entire Repo</h3>
+            <p style="font-size:0.82rem;color:var(--deck-text-2);">
+              Non-prod <code>plan &lt;dev&gt;</code> (<button type="button" class="slide-issue-btn" data-inspect="5906">#5906</button>), <code>render</code> (<button type="button" class="slide-issue-btn" data-inspect="5905">#5905</button>), <code>test</code> (<button type="button" class="slide-issue-btn" data-inspect="6024">#6024</button>), and <code>format</code> (<button type="button" class="slide-issue-btn" data-inspect="6025">#6025</button>) parse every model file instead of loading the modified subgraph via <code>--use-project-index</code>.
+            </p>
+          </div>
+
+          <div class="arch-stage">
+            <span class="slide-layout-tag">Diff &amp; Categorization</span>
+            <h3 style="margin:0;font-size:0.95rem;">2. Coarse Table-Level Diffs</h3>
+            <p style="font-size:0.82rem;color:var(--deck-text-2);">
+              OSS lacks column-level lineage pruning in <code>plan</code> (<button type="button" class="slide-issue-btn" data-inspect="6062">#6062</button>), and parent SQL whitespace edits trigger false child backfills (<button type="button" class="slide-issue-btn" data-inspect="5573">#5573</button>).
+            </p>
+          </div>
+
+          <div class="arch-stage">
+            <span class="slide-layout-tag">Warehouse Execution</span>
+            <h3 style="margin:0;font-size:0.95rem;">3. Data Volume &amp; IO</h3>
+            <p style="font-size:0.82rem;color:var(--deck-text-2);">
+              Python DF writes use 2–6K row/s <code>VALUES</code> instead of Postgres <code>COPY</code> (<button type="button" class="slide-issue-btn" data-inspect="5830">#5830</button>); 1,000-table TB pipelines need dev <code>TABLESAMPLE</code> (<button type="button" class="slide-issue-btn" data-inspect="5408">#5408</button>) &amp; BQ <code>copy_partitions</code> (<button type="button" class="slide-issue-btn" data-inspect="5655">#5655</button>).
+            </p>
+          </div>
+
+          <div class="arch-stage bottleneck">
+            <span class="slide-layout-tag" style="color:var(--deck-rel);font-weight:700;">Bottleneck 2: O(N²) Promotion</span>
+            <h3 style="margin:0;font-size:0.95rem;">4. Virtual Layer Update</h3>
+            <p style="font-size:0.82rem;color:var(--deck-text-2);">
+              Rebuilds <code>to_table_mapping</code> (<button type="button" class="slide-issue-btn" data-inspect="6018">#6018</button>) &amp; <code>snapshot_by_name</code> (<button type="button" class="slide-issue-btn" data-inspect="6019">#6019</button>) per view in Python—stalling <strong>2,400 BigQuery views for 40–50 min</strong> (<button type="button" class="slide-issue-btn" data-inspect="6014">#6014</button>)!
+            </p>
+          </div>
+        </div>
+
+        <div class="slide-grid-2 anim-in anim-d2">
+          <pre class="slide-code"># Current O(N²) hot loop in virtual-layer promotion (#6014 / #6018 / #6019)
+# Across N = 2,400 snapshots, per-expression dict comprehensions execute ~5.7M steps:
+snapshot_by_name = {s.name: s for s in (snapshots or {}).values()}  # rebuilt per worker!
+mapping = snapshot.to_table_mapping(...)                             # rebuilt per expression!</pre>
+          <div class="slide-card">
+            <h3><span>Multi-Team Repository Governance</span><span class="slide-layout-tag">Config O(1) vs O(N)</span></h3>
+            <p>
+              Large orgs also hit configuration sprawl: repeating identical RBAC <code>grants</code> (<button type="button" class="slide-issue-btn" data-inspect="5602">#5602</button>) and <code>blueprints</code> (<button type="button" class="slide-issue-btn" data-inspect="4928">#4928</button>) across 90%+ of files, lacking folder-level <code>model_defaults</code> inheritance (<button type="button" class="slide-issue-btn" data-inspect="4996">#4996</button>), and running unrelated `main` churn in CI/CD PR plans without `--select-model` (<button type="button" class="slide-issue-btn" data-inspect="5599">#5599</button>).
+            </p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>Act II is <strong>Scalability</strong>—only 34 primary issues, but they form a remarkably tight architectural story. Look at the four-stage pipeline across the middle of the slide.</p>
+          <p>When a developer changes <strong>one SQL file</strong> in a 2,000-model repo and runs a dev command, they get taxed at both ends. At Stage 1, <code>plan dev</code> (<strong>#5906</strong>), <code>render</code> (<strong>#5905</strong>), <code>test</code> (<strong>#6024</strong>), and even <code>format</code> (<strong>#6025</strong>) initialize and parse the entire repository instead of walking the upstream subgraph index.</p>
+          <p>Then at Stage 4, look at <strong>#6014</strong>: updating the virtual layer runs in <strong>quadratic O(N²) pure-Python time</strong> because <code>to_table_mapping</code> (<strong>#6018</strong>) and <code>snapshot_by_name</code> (<strong>#6019</strong>) are recomputed inside inner loops. On a real 2,400-view BigQuery project, "Updating virtual layer" takes <strong>40 to 50 minutes</strong> regardless of <code>concurrent_tasks</code>! Caching those two dicts and landing subgraph loading turns a 45-minute wait back into seconds.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 5: ACT III - ADOPTION -->
+      <section class="slide" data-slide-idx="4" data-chapter="05 / Act III: Adoption" data-title="Act III — Adoption (52 + 69): Closing the dbt & Enterprise Last Mile" data-layout="comparison">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag" style="background:var(--deck-ado);color:#FFF;">Act III — Adoption (52 Primary + 69 Secondary | 57.3% Touch)</span>
+            <span class="slide-layout-tag">Migration Parity, Enterprise Auth &amp; Day-1 Debugging</span>
+          </div>
+          <h2 class="slide-h2">Teams Buy the Architecture—Then Trip on Ecosystem &amp; Enterprise Edges</h2>
+          <p class="slide-lead">
+            Evaluators rarely question SQLMesh's state model; friction clusters around losing surrounding dbt tooling, fitting corporate cloud/security rules, and debugging opaque CLI runs.
+          </p>
+        </div>
+
+        <div class="slide-grid-3 anim-in anim-d1">
+          <div class="slide-card">
+            <h3><span>1. dbt Migration &amp; Ecosystem</span><span class="slide-layout-tag">Zero Lock-In</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5821">#5821</button> <strong>Export `manifest.json`:</strong> Losing elementary, BI syncs, and lineage catalogs that read dbt artifacts is the #1 organizational blocker.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5295">#5295</button> <strong>`dbt_expectations` Jinja:</strong> Whitespace-trimming `-%}` tags fail with `Encountered unknown tag 'endtest'`.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="3855">#3855</button> <strong>Schema-shape audits:</strong> Parity with `dbt-expectations` / Soda external source drift checks.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="4108">#4108</button> <strong>Zero-reprocessing walkthrough:</strong> Step-by-step dbt cutover guide without terrifying warehouse backfills.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>2. Enterprise Security &amp; SQL</span><span class="slide-layout-tag">IT / DBA Rules</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5066">#5066</button> <button type="button" class="slide-issue-btn" data-inspect="5183">#5183</button> <strong>Entra ID &amp; OAuth M2M:</strong> Passwordless Azure SQL auth (`attrs_before`) and &gt;1h Databricks token auto-refresh.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="4741">#4741</button> <strong>Azure `SqlPackage` 2-part views:</strong> 3-part view names break BACPAC export validation in SSMS/DevOps.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5034">#5034</button> <button type="button" class="slide-issue-btn" data-inspect="5601">#5601</button> <strong>`@@` Macro Collision:</strong> SQLMesh's `@` macro sigil hijacks BigQuery `@@reservation` and T-SQL `@@DATEFIRST`.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5364">#5364</button> <strong>Spark + AWS Glue Iceberg:</strong> Virtual environments blocked by Glue catalog view semantics.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>3. CLI &amp; Docs Clarity</span><span class="slide-layout-tag">Developer Loop</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6064">#6064</button> <strong>Missing model name on crash:</strong> Driver exceptions print raw SQL errors without naming which parallel model failed!</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5904">#5904</button> <button type="button" class="slide-issue-btn" data-inspect="5430">#5430</button> <strong>"Looks stuck" CLI logs:</strong> Batch lines only print *after* completion; silent 60s startup introspection.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="3297">#3297</button> <strong>CI/CD PR `table_diff`:</strong> Auto-surface row/value diff summaries in PR comments.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5580">#5580</button> <button type="button" class="slide-issue-btn" data-inspect="5418">#5418</button> <strong>Docs blind spots:</strong> Working `SCD_TYPE_2_BY_TIME` examples and built-in audit `condition` docs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>In Act III, let's look at why <strong>Adoption</strong> touches 121 of our 211 open issues. Notice a pattern across these three columns: evaluators are already sold on SQLMesh's engine—what slows them down is the <strong>organizational perimeter</strong>.</p>
+          <p>First, look at <strong>#5821</strong>: teams migrating from dbt discover that their data catalog, Elementary alerts, and BI tools all ingest dbt's <code>manifest.json</code>. Exporting a compatible artifact—plus fixing <code>dbt_expectations</code> Jinja tags in <strong>#5295</strong>—removes an immediate veto from platform teams.</p>
+          <p>Second, enterprise IT controls: Azure shops need passwordless <strong>Entra ID auth</strong> (<strong>#5066</strong>) and 2-part view names so <code>SqlPackage</code> exports don't fail validation (<strong>#4741</strong>). And third, small day-to-day CLI paper cuts with huge leverage: printing the <strong>failing model name</strong> on driver errors (<strong>#6064</strong>) and logging <code>[Running]</code> when a batch starts (<strong>#5904</strong>) so tailing CI logs doesn't look frozen.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 6: ACT IV - EXTENSIBILITY -->
+      <section class="slide" data-slide-idx="5" data-chapter="06 / Act IV: Extensibility" data-title="Act IV — Extensibility (15 + 20): Escape the 'Fork EngineAdapter' Trap" data-layout="three-column">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag" style="background:var(--deck-ext);color:#FFF;">Act IV — Extensibility (15 Primary + 20 Secondary | 16.6% Touch)</span>
+            <span class="slide-layout-tag">Hooks, Drivers, SQL Macros &amp; Semantic Standards</span>
+          </div>
+          <h2 class="slide-h2">Power Users Are Forking `EngineAdapter` Because Clean Seams Are Missing</h2>
+          <p class="slide-lead">
+            Extensibility has the smallest primary count (15), yet carries outsized strategic weight under Linux Foundation governance: letting partners and enterprises extend SQLMesh <strong>without maintaining private forks</strong>.
+          </p>
+        </div>
+
+        <div class="slide-grid-3 anim-in anim-d1">
+          <div class="slide-card">
+            <h3><span>1. Stop Forced Adapter Forks</span><span class="slide-layout-tag">Adapter &amp; Driver Seams</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5600">#5600</button> <strong>Snowflake State DDL:</strong> Reporter explicitly notes <em>"manually forking `SnowflakeEngineAdapter`"</em> just to use Snowflake `HYBRID TABLE`s for fast state sync.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5623">#5623</button> <strong>`create_schemas: false`:</strong> Least-privilege enterprise teams currently subclass adapters just to skip `CREATE SCHEMA`.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5814">#5814</button> <strong>ADBC BYOD Driver:</strong> Apache Arrow ADBC interface so users bring any Arrow-compliant database driver + fast `fetchdf`.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="6048">#6048</button> <strong>`OracleEngineAdapter`:</strong> External contributor ready to build Oracle 19c+ adapter upstream.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>2. Macro &amp; Event Lifecycle Hooks</span><span class="slide-layout-tag">Programmability</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="2505">#2505</button> <strong>SQL-Defined `MACRO`:</strong> Author reusable macros directly in `.sql` files without dropping into Python—huge for SQL-first teams.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5865">#5865</button> <strong>`NotificationTarget` Audit Pass:</strong> Emit `audit pass` events (not just failures) so platforms build compliance/SLA sinks cleanly.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5900">#5900</button> <strong>`@resolve_template` Upstream Table:</strong> Expose physical fingerprint table names of upstream models for custom `FOREIGN KEY` hooks.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5955">#5955</button> <strong>Virtual Schema Templates:</strong> Prefix/regex naming (`dev_&lt;user&gt;`) matching `physical_schema_mapping`.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>3. Open Metadata &amp; CI Artifacts</span><span class="slide-layout-tag">Ecosystem Contracts</span></h3>
+            <ul>
+              <li><button type="button" class="slide-issue-btn" data-inspect="5997">#5997</button> <strong>Ossie Semantic Layer:</strong> Auto-generate Apache 2.0 Ossie semantic specs (backed by 60+ vendors) from SQLMesh models &amp; metrics.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="3565">#3565</button> <strong>Open Metadata Catalog:</strong> Native lineage ingestion contract for external governance catalogs.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="4959">#4959</button> <strong>Static Catalog Export:</strong> Build static HTML/JS docs (`sqlmesh ui --mode catalog` export) for S3/GitHub Pages hosting.</li>
+              <li><button type="button" class="slide-issue-btn" data-inspect="4318">#4318</button> <strong>Credential-Free Render:</strong> Decouple SQL rendering in CI from live production warehouse credentials.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>Act IV is <strong>Extensibility</strong>—15 primary issues and 20 secondary mentions. Even though 7.1% looks small on a pie chart, read the actual quotes from users in these tickets: they are telling us <strong>where our abstractions leak</strong>.</p>
+          <p>In <strong>#5600</strong>, an enterprise Snowflake team literally had to <strong>fork the SQLMesh repository</strong> and patch <code>SnowflakeEngineAdapter</code> just to back state tables with Snowflake Hybrid Tables. In <strong>#5623</strong>, another regulated team subclasses engine adapters in Python solely because there is no <code>create_schemas: false</code> config flag when DBAs pre-provision schemas.</p>
+          <p>Looking forward, three extensibility bets unlock huge community leverage: <strong>Apache Arrow ADBC</strong> as a bring-your-own-driver layer (<strong>#5814</strong>), native <code>.sql</code> macros (<strong>#2505</strong>), and auto-generating <strong>Ossie semantic-layer specs</strong> (<strong>#5997</strong>) so BI tools plug into SQLMesh as a first-class source of truth. Now, why didn't our GitHub labels surface any of this? Let's check Act V.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 7: ACT V - THE TRIAGE BLIND SPOT -->
+      <section class="slide" data-slide-idx="6" data-chapter="07 / Act V: Intake Gap" data-title="Act V — 72% Unrouted & the Post-Linux-Foundation Unlabeled Surge" data-layout="chart-bar">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">Act V — Triage &amp; Intake Telemetry</span>
+            <span class="slide-layout-tag">Phase 1 Audit: 32 Labels (23 Triage Routing | 9 Metadata)</span>
+          </div>
+          <h2 class="slide-h2">72% of Open Issues Lack Routing Labels—and Triage Stopped After March 2026</h2>
+          <p class="slide-lead">
+            Plotting per-issue label counts alongside issue creation quarters exposes two structural breakdowns: core subsystems have no labels to apply, and incoming issue labeling dropped sharply after the Linux Foundation transfer.
+          </p>
+        </div>
+
+        <div class="slide-grid-2 anim-in anim-d1">
+          <div class="slide-card">
+            <h3><span>Per-Issue Coverage (`0 / 1 / 2+` Labels)</span><span class="slide-layout-tag">Click column to filter</span></h3>
+            <svg viewBox="0 0 520 255" class="chart-svg" role="img" aria-label="Per-issue label count distribution chart"><line x1="44" y1="209.0" x2="502" y2="209.0" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="36" y="213.0" text-anchor="end" class="svg-axis-num">0</text><line x1="44" y1="163.8" x2="502" y2="163.8" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="36" y="167.8" text-anchor="end" class="svg-axis-num">50</text><line x1="44" y1="118.5" x2="502" y2="118.5" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="36" y="122.5" text-anchor="end" class="svg-axis-num">100</text><line x1="44" y1="73.2" x2="502" y2="73.2" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="36" y="77.2" text-anchor="end" class="svg-axis-num">150</text><line x1="44" y1="28.0" x2="502" y2="28.0" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="36" y="32.0" text-anchor="end" class="svg-axis-num">200</text><rect class="svg-clickable" data-chart-label="__UNLABELED_TRIAGE__" x="63.3" y="71.4" width="34.0" height="137.6" rx="3" fill="#1570EF"><title>Triage routing (23) — 0 labels: 152 issues (72.0%)</title></rect><text x="80.3" y="66.4" text-anchor="middle" class="svg-bar-top-num">152</text><rect class=""  x="103.3" y="37.1" width="34.0" height="171.9" rx="3" fill="#6938EF"><title>Workstream only (9) — 0 labels: 190 issues (90.0%)</title></rect><text x="120.3" y="32.1" text-anchor="middle" class="svg-bar-top-num">190</text><rect class="svg-clickable" data-chart-label="__UNLABELED_ALL__" x="143.3" y="154.7" width="34.0" height="54.3" rx="3" fill="#0F172A"><title>All repo labels (32) — 0 labels: 60 issues (28.4%)</title></rect><text x="160.3" y="149.7" text-anchor="middle" class="svg-bar-top-num">60</text><text x="120.3" y="227.0" text-anchor="middle" class="svg-row-label">0 labels</text><rect class=""  x="216.0" y="157.4" width="34.0" height="51.6" rx="3" fill="#1570EF"><title>Triage routing (23) — 1 label: 57 issues (27.0%)</title></rect><text x="233.0" y="152.4" text-anchor="middle" class="svg-bar-top-num">57</text><rect class=""  x="256.0" y="190.0" width="34.0" height="19.0" rx="3" fill="#6938EF"><title>Workstream only (9) — 1 label: 21 issues (10.0%)</title></rect><text x="273.0" y="185.0" text-anchor="middle" class="svg-bar-top-num">21</text><rect class=""  x="296.0" y="129.4" width="34.0" height="79.6" rx="3" fill="#0F172A"><title>All repo labels (32) — 1 label: 88 issues (41.7%)</title></rect><text x="313.0" y="124.4" text-anchor="middle" class="svg-bar-top-num">88</text><text x="273.0" y="227.0" text-anchor="middle" class="svg-row-label">1 label</text><rect class="svg-clickable" data-chart-label="__MULTI_TRIAGE__" x="368.7" y="207.2" width="34.0" height="1.8" rx="3" fill="#1570EF"><title>Triage routing (23) — 2+ labels: 2 issues (0.9%)</title></rect><text x="385.7" y="202.2" text-anchor="middle" class="svg-bar-top-num">2</text><rect class=""  x="408.7" y="209.0" width="34.0" height="1.5" rx="3" fill="#6938EF"><title>Workstream only (9) — 2+ labels: 0 issues (0.0%)</title></rect><text x="425.7" y="204.0" text-anchor="middle" class="svg-bar-top-num">0</text><rect class=""  x="448.7" y="152.0" width="34.0" height="57.0" rx="3" fill="#0F172A"><title>All repo labels (32) — 2+ labels: 63 issues (29.9%)</title></rect><text x="465.7" y="147.0" text-anchor="middle" class="svg-bar-top-num">63</text><text x="425.7" y="227.0" text-anchor="middle" class="svg-row-label">2+ labels</text><rect x="50" y="240" width="10" height="10" rx="2" fill="#1570EF"/><text x="64" y="249" class="svg-axis-num">Triage routing (23)</text><rect x="205" y="240" width="10" height="10" rx="2" fill="#6938EF"/><text x="219" y="249" class="svg-axis-num">Workstream only (9)</text><rect x="360" y="240" width="10" height="10" rx="2" fill="#0F172A"/><text x="374" y="249" class="svg-axis-num">All repo labels (32)</text></svg>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>Quarterly Backlog &amp; Unlabeled Surge</span><span class="slide-layout-tag">Mar 25, 2026 Inflection</span></h3>
+            <svg viewBox="0 0 540 250" class="chart-svg" role="img" aria-label="Open issue backlog by creation quarter and label status"><line x1="40" y1="198.0" x2="524" y2="198.0" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="34" y="202.0" text-anchor="end" class="svg-axis-num">0</text><line x1="40" y1="147.6" x2="524" y2="147.6" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="34" y="151.6" text-anchor="end" class="svg-axis-num">15</text><line x1="40" y1="97.2" x2="524" y2="97.2" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="34" y="101.2" text-anchor="end" class="svg-axis-num">30</text><line x1="40" y1="46.8" x2="524" y2="46.8" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="34" y="50.8" text-anchor="end" class="svg-axis-num">45</text><rect class="svg-clickable" data-chart-quarter="2023" x="46.3" y="187.9" width="24.6" height="10.1" fill="#1570EF"><title>2023 Labeled: 3 open issues — click to search quarter</title></rect><text x="58.6" y="183.9" text-anchor="middle" class="svg-bar-top-num">3</text><text x="58.6" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;23</text><rect class="svg-clickable" data-chart-quarter="2024-Q1" x="83.6" y="191.3" width="24.6" height="6.7" fill="#1570EF"><title>2024-Q1 Labeled: 2 open issues — click to search quarter</title></rect><text x="95.8" y="187.3" text-anchor="middle" class="svg-bar-top-num">2</text><text x="95.8" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;24-Q1</text><rect class="svg-clickable" data-chart-quarter="2024-Q2" x="120.8" y="187.9" width="24.6" height="10.1" fill="#1570EF"><title>2024-Q2 Labeled: 3 open issues — click to search quarter</title></rect><text x="133.1" y="183.9" text-anchor="middle" class="svg-bar-top-num">3</text><text x="133.1" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;24-Q2</text><rect class="svg-clickable" data-chart-quarter="2024-Q3" x="158.0" y="191.3" width="24.6" height="6.7" fill="#1570EF"><title>2024-Q3 Labeled: 2 open issues — click to search quarter</title></rect><text x="170.3" y="187.3" text-anchor="middle" class="svg-bar-top-num">2</text><text x="170.3" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;24-Q3</text><rect class="svg-clickable" data-chart-quarter="2024-Q4" x="195.3" y="171.1" width="24.6" height="26.9" fill="#1570EF"><title>2024-Q4 Labeled: 8 open issues — click to search quarter</title></rect><text x="207.5" y="167.1" text-anchor="middle" class="svg-bar-top-num">8</text><text x="207.5" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;24-Q4</text><rect class="svg-clickable" data-chart-quarter="2025-Q1" x="232.5" y="177.8" width="24.6" height="20.2" fill="#1570EF"><title>2025-Q1 Labeled: 6 open issues — click to search quarter</title></rect><text x="244.8" y="173.8" text-anchor="middle" class="svg-bar-top-num">6</text><text x="244.8" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;25-Q1</text><rect class="svg-clickable" data-chart-quarter="2025-Q2" x="269.7" y="110.6" width="24.6" height="87.4" fill="#1570EF"><title>2025-Q2 Labeled: 26 open issues — click to search quarter</title></rect><text x="282.0" y="106.6" text-anchor="middle" class="svg-bar-top-num">26</text><text x="282.0" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;25-Q2</text><rect class="svg-clickable" data-chart-quarter="2025-Q3" x="306.9" y="93.8" width="24.6" height="104.2" fill="#1570EF"><title>2025-Q3 Labeled: 31 open issues — click to search quarter</title></rect><rect class="svg-clickable" data-chart-quarter="2025-Q3" data-chart-unlabeled="1" x="306.9" y="56.9" width="24.6" height="37.0" fill="#D92D20"><title>2025-Q3 Completely Unlabeled (0 labels): 11 open issues — click to filter</title></rect><text x="319.2" y="52.9" text-anchor="middle" class="svg-bar-top-num">42</text><text x="319.2" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;25-Q3</text><rect class="svg-clickable" data-chart-quarter="2025-Q4" x="344.2" y="157.7" width="24.6" height="40.3" fill="#1570EF"><title>2025-Q4 Labeled: 12 open issues — click to search quarter</title></rect><rect class="svg-clickable" data-chart-quarter="2025-Q4" data-chart-unlabeled="1" x="344.2" y="120.7" width="24.6" height="37.0" fill="#D92D20"><title>2025-Q4 Completely Unlabeled (0 labels): 11 open issues — click to filter</title></rect><text x="356.5" y="116.7" text-anchor="middle" class="svg-bar-top-num">23</text><text x="356.5" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;25-Q4</text><rect class="svg-clickable" data-chart-quarter="2026-Q1" x="381.4" y="120.7" width="24.6" height="77.3" fill="#1570EF"><title>2026-Q1 Labeled: 23 open issues — click to search quarter</title></rect><rect class="svg-clickable" data-chart-quarter="2026-Q1" data-chart-unlabeled="1" x="381.4" y="114.0" width="24.6" height="6.7" fill="#D92D20"><title>2026-Q1 Completely Unlabeled (0 labels): 2 open issues — click to filter</title></rect><text x="393.7" y="110.0" text-anchor="middle" class="svg-bar-top-num">25</text><text x="393.7" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;26-Q1</text><rect class="svg-clickable" data-chart-quarter="2026-Q2" x="418.6" y="144.2" width="24.6" height="53.8" fill="#1570EF"><title>2026-Q2 Labeled: 16 open issues — click to search quarter</title></rect><rect class="svg-clickable" data-chart-quarter="2026-Q2" data-chart-unlabeled="1" x="418.6" y="137.5" width="24.6" height="6.7" fill="#D92D20"><title>2026-Q2 Completely Unlabeled (0 labels): 2 open issues — click to filter</title></rect><text x="430.9" y="133.5" text-anchor="middle" class="svg-bar-top-num">18</text><text x="430.9" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;26-Q2</text><rect class="svg-clickable" data-chart-quarter="2026-Q3" x="455.9" y="151.0" width="24.6" height="47.0" fill="#1570EF"><title>2026-Q3 Labeled: 14 open issues — click to search quarter</title></rect><rect class="svg-clickable" data-chart-quarter="2026-Q3" data-chart-unlabeled="1" x="455.9" y="83.8" width="24.6" height="67.2" fill="#D92D20"><title>2026-Q3 Completely Unlabeled (0 labels): 20 open issues — click to filter</title></rect><text x="468.2" y="79.8" text-anchor="middle" class="svg-bar-top-num">34</text><text x="468.2" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;26-Q3</text><rect class="svg-clickable" data-chart-quarter="2026-Q4" x="493.1" y="181.2" width="24.6" height="16.8" fill="#1570EF"><title>2026-Q4 Labeled: 5 open issues — click to search quarter</title></rect><rect class="svg-clickable" data-chart-quarter="2026-Q4" data-chart-unlabeled="1" x="493.1" y="134.2" width="24.6" height="47.0" fill="#D92D20"><title>2026-Q4 Completely Unlabeled (0 labels): 14 open issues — click to filter</title></rect><text x="505.4" y="130.2" text-anchor="middle" class="svg-bar-top-num">19</text><text x="505.4" y="213.0" text-anchor="middle" class="svg-axis-num">&#x27;26-Q4</text><line x1="412.3" y1="18" x2="412.3" y2="198" stroke="#B42318" stroke-width="1.5" stroke-dasharray="4 3"/><text x="416.3" y="28" fill="#B42318" font-size="10.5" font-weight="700">LF Transfer (Mar 25, '26) — 50% unlabeled</text><rect x="40" y="235" width="10" height="10" rx="2" fill="#1570EF"/><text x="54" y="244" class="svg-axis-num">Has &gt;=1 GitHub label (151)</text><rect x="218" y="235" width="10" height="10" rx="2" fill="#D92D20"/><text x="232" y="244" class="svg-axis-num">0 labels of any kind (60)</text></svg>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>Here is the operational heart of our audit. When we classified all 32 labels in the repo, we found <strong>zero priority or severity labels</strong>, 9 metadata tags like <code>Bug</code> and <code>Improvement</code>, and 23 routing labels—almost all of which are <code>Engine:*</code> warehouse tags.</p>
+          <p>Look at the left chart: <strong>152 out of 211 open issues—72.0%—have zero triage routing labels</strong>. If you treat <code>Engine:*</code> as area metadata and count only workstream labels like <code>Documentation</code>, <code>Project: dbt</code>, or <code>Project: VSCode Extension</code>, <strong>90.0% of the backlog has zero routing labels</strong>!</p>
+          <p>Now look at the timeline on the right. Before SQLMesh transferred to the Linux Foundation on <strong>March 25, 2026</strong>, only <strong>17.3%</strong> of open issues had zero labels of any kind. Since March 25, <strong>50.0% (36 of 72 issues) are completely unlabeled</strong>—and since August 2026, <strong>79.3% (23 of 29)</strong> haven't been touched by triage! That means critical recent bugs like <strong>#6087</strong> and <strong>#6212</strong> are invisible to label filters.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 8: ACT VI - LABEL VS PILLAR ALIGNMENT -->
+      <section class="slide" data-slide-idx="7" data-chapter="08 / Act VI: Alignment" data-title="Act VI — Orthogonal Adapters & Conflicting Metadata Tags" data-layout="table">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">Act VI — Label × Pillar Alignment</span>
+            <span class="slide-layout-tag">Why Filtering by Current Labels Misroutes Engineering Priority</span>
+          </div>
+          <h2 class="slide-h2">Current Labels Route *Who Owns the Adapter*, Not *Why It Matters*</h2>
+          <p class="slide-lead">
+            Comparing existing labels against our four pillars shows that `Engine:*` tags are orthogonal component routers—while `Improvement` and `Feature` actively mask high-severity Scalability and Reliability work.
+          </p>
+        </div>
+
+        <div class="slide-card anim-in anim-d1" style="padding:12px 16px;overflow-x:auto;">
+          <table class="slide-table">
+            <thead>
+              <tr>
+                <th>Label Group</th>
+                <th>Open Issues</th>
+                <th>Pillar Breakdown</th>
+                <th>Alignment Verdict</th>
+                <th>Engineering Takeaway</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Documentation</code></td>
+                <td><strong>7</strong></td>
+                <td>Adoption: 7 (100%)</td>
+                <td><span class="verdict-chip verdict-Aligned">Aligned</span></td>
+                <td>Clean 1:1 Adoption signal, but missed on 3 open docs issues (<button type="button" class="slide-issue-btn" data-inspect="5418">#5418</button>, <button type="button" class="slide-issue-btn" data-inspect="5580">#5580</button>, <button type="button" class="slide-issue-btn" data-inspect="5696">#5696</button>).</td>
+              </tr>
+              <tr>
+                <td><code>Scheduler: Built-in</code></td>
+                <td><strong>1</strong></td>
+                <td>Reliability: 1 (100%)</td>
+                <td><span class="verdict-chip verdict-Aligned">Aligned</span></td>
+                <td>Too narrow (`1` issue <button type="button" class="slide-issue-btn" data-inspect="5843">#5843</button>); merge into broader <code>core: planner-state</code> routing label.</td>
+              </tr>
+              <tr>
+                <td><code>Project: dbt</code> / <code>CICD Bot</code></td>
+                <td><strong>3 / 2</strong></td>
+                <td>Adoption + Reliability</td>
+                <td><span class="verdict-chip verdict-Overlapping">Overlapping</span></td>
+                <td>High-value workstream tags, but under-applied (<button type="button" class="slide-issue-btn" data-inspect="5821">#5821</button>, <button type="button" class="slide-issue-btn" data-inspect="5599">#5599</button>, <button type="button" class="slide-issue-btn" data-inspect="5625">#5625</button> missed them).</td>
+              </tr>
+              <tr>
+                <td><code>Engine:*</code> (13) + <code>Iceberg</code> + <code>UI/IDE</code></td>
+                <td><strong>49</strong></td>
+                <td>Rel 31 / Ado 12 / Sca 8 / Ext 2</td>
+                <td><span class="verdict-chip verdict-Orthogonal">Orthogonal</span></td>
+                <td>Essential for component routing, useless for prioritization; BigQuery applied to only 1 of 9 BQ issues.</td>
+              </tr>
+              <tr>
+                <td><code>Improvement</code> / <code>Feature</code> (Metadata)</td>
+                <td><strong>66 / 37</strong></td>
+                <td>Ado 53 / Sca 27 / Rel 14 / Ext 9</td>
+                <td><span class="verdict-chip verdict-Conflicting">Conflicting*</span></td>
+                <td>*If treated as lower priority than <code>Bug</code>, hides regression <button type="button" class="slide-issue-btn" data-inspect="5629">#5629</button>, SCD2 <button type="button" class="slide-issue-btn" data-inspect="5757">#5757</button>, &amp; `O(N²)` <button type="button" class="slide-issue-btn" data-inspect="6014">#6014</button>!</td>
+              </tr>
+              <tr>
+                <td><code>Ibis</code> / <code>Airflow</code> / <code>codex</code> / <code>UX</code></td>
+                <td><strong>0 / 0 / 0 / 1</strong></td>
+                <td>Dormant or 96% unapplied</td>
+                <td><span class="verdict-chip verdict-Orthogonal">Retire</span></td>
+                <td>6 repository labels have 0 open issues; <code>UX</code> (`1` issue <button type="button" class="slide-issue-btn" data-inspect="4996">#4996</button>) is too vague to apply consistently.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="notes">
+          <p>Slide 8 answers a question every maintainer asks: "Can't we just map our existing GitHub labels onto the four pillars?" Here's the exact alignment table, and it shows why that fails.</p>
+          <p>Only <code>Documentation</code> cleanly aligns 1-to-1 with <strong>Adoption</strong>. All 13 <code>Engine:*</code> labels, <code>Table Format: Iceberg</code>, and the UI/VSCode tags are <strong>Orthogonal</strong>—they tell you <em>which file</em> you're editing, like <code>duckdb.py</code> or <code>clickhouse.py</code>, which is super useful for routing a PR reviewer, but tells you zero about whether the ticket is a silent data-loss fire or a nice-to-have syntax request.</p>
+          <p>Even worse, look at the fifth row: <code>Improvement</code> (66 issues) and <code>Feature</code> (37 issues) look harmless as metadata, until someone filters by <code>Bug</code> to plan a stabilization sprint—and completely misses maiden-plan regression <strong>#5629</strong>, SCD2 null-corruption <strong>#5757</strong>, and the 45-minute quadratic promotion stall <strong>#6014</strong> because authors filed them as "Improvements"!</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 9: ACT VII - RUBRIC & TAXONOMY REDESIGN -->
+      <section class="slide" data-slide-idx="8" data-chapter="09 / Act VII: New Taxonomy" data-title="Act VII — Deterministic Triage Rubric & Three Missing Core Labels" data-layout="process-steps">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">Act VII — Repeatable System</span>
+            <span class="slide-layout-tag">Cue Rubric + 3 Proposed Labels + 4 Retirements</span>
+          </div>
+          <h2 class="slide-h2">Separate *Strategic Pillar* (Priority) from *Subsystem Label* (Routing)</h2>
+          <p class="slide-lead">
+            Instead of overloading warehouse tags, enforce a 4-rule pillar tie-breaker on the GitHub Project board and add the <strong>three missing core subsystem labels</strong> where 72% of unrouted issues actually live.
+          </p>
+        </div>
+
+        <div class="slide-grid-2 anim-in anim-d1">
+          <div class="slide-card">
+            <h3><span>4-Step Pillar Tie-Breaker (2-Min Triage)</span><span class="slide-layout-tag">02-cue-rubric.md</span></h3>
+            <ul>
+              <li><strong>Step 1 — Broken Contract Wins (`Reliability`):</strong> Crash, regression, race, or silent wrong data in a supported feature? Always <em>Primary: Reliability</em> (put dbt/IDE/scale context in <em>Secondary</em>).</li>
+              <li><strong>Step 2 — Asymptotic / Fleet Cost (`Scalability`):</strong> Driven by `N` models (`2,400 views`), TB partitions, or `90%+` repo boilerplate? <em>Primary: Scalability</em>.</li>
+              <li><strong>Step 3 — Seam vs. Built-In (`Extensibility` vs. `Adoption`):</strong> Hook/driver/artifact to avoid forking SQLMesh -&gt; <em>Extensibility</em>; built-in SQL/dbt/auth/docs parity -&gt; <em>Adoption</em>.</li>
+              <li><strong>Step 4 — Confidence &amp; Hygiene:</strong> Mark `&lt;120`-char bodies `Low` confidence (`needs-repro`); leave internal CI chores `Uncategorized`.</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>3 High-Signal Labels to Create Today</span><span class="slide-layout-tag">04-alignment-recs.md</span></h3>
+            <ul>
+              <li><span class="gh-label-chip"><span class="gh-label-dot" style="background:#B42318"></span><strong>data-correctness</strong></span> Isolates silent data loss, row duplication, SCD2 truncation, and false-green audits (<strong>15+ open issues</strong>, 7 currently unlabeled) for P0 triage.</li>
+              <li><span class="gh-label-chip"><span class="gh-label-dot" style="background:#175CD3"></span><strong>core: planner-state</strong></span> Fills SQLMesh's biggest routing hole: DAG/subgraph loading (<button type="button" class="slide-issue-btn" data-inspect="5906">#5906</button>), `O(N²)` virtual layer (<button type="button" class="slide-issue-btn" data-inspect="6014">#6014</button>), lineage (<button type="button" class="slide-issue-btn" data-inspect="6062">#6062</button>), and `StateSync`/janitor (<button type="button" class="slide-issue-btn" data-inspect="6209">#6209</button>).</li>
+              <li><span class="gh-label-chip"><span class="gh-label-dot" style="background:#6938EF"></span><strong>ecosystem-integration</strong></span> Routes external metadata &amp; plugin contracts: dbt `manifest.json` (<button type="button" class="slide-issue-btn" data-inspect="5821">#5821</button>), Ossie (<button type="button" class="slide-issue-btn" data-inspect="5997">#5997</button>), ADBC (<button type="button" class="slide-issue-btn" data-inspect="5814">#5814</button>), `NotificationTarget` (<button type="button" class="slide-issue-btn" data-inspect="5865">#5865</button>).</li>
+              <li><strong>Retire 4 tags:</strong> Delete `Project: Ibis` (0), `Scheduler: Airflow` (0), `codex` (0), `UX` (1); rename `Project: UI`/`VSCode` -&gt; `area: web-ui` &amp; `area: ide-lsp`.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>So how do we fix this without inventing a bureaucratic 50-label taxonomy that nobody maintains? Two simple moves on Slide 9.</p>
+          <p>Move one: keep <strong>Strategic Pillars</strong> in a required single-select field on the GitHub Project v2 board, governed by the 4-step tie-breaker on the left. Any engineer on weekly triage rotation can classify an issue in 30 seconds: does it break an existing contract? <strong>Reliability</strong>. Is it an asymptotic or multi-hundred-model bottleneck? <strong>Scalability</strong>. Is it a pluggable seam to stop forks? <strong>Extensibility</strong>. Otherwise, if it unblocks migration, SQL parity, or CLI clarity, <strong>Adoption</strong>.</p>
+          <p>Move two: fill the three glaring component blind spots in GitHub labels. Adding <code>data-correctness</code> immediately flags silent corruption; <code>core: planner-state</code> finally gives core DAG, snapshot, and virtual-layer issues a home; and <code>ecosystem-integration</code> groups external contracts like <code>manifest.json</code>, Ossie, and ADBC—while we delete four dead tags.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 10: ROADMAP & DECISIONS NEEDED -->
+      <section class="slide" data-slide-idx="9" data-chapter="10 / Action Plan" data-title="30-Day Engineering Action Plan & Maintainer Decisions" data-layout="roadmap">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">Execution &amp; Decisions</span>
+            <span class="slide-layout-tag">Ready-to-Run Backfill Data in 03-pillar-catalog.md</span>
+          </div>
+          <h2 class="slide-h2">What We Ship Next—and 4 Decisions to Lock In Today</h2>
+          <p class="slide-lead">
+            The 211-issue catalog is already mapped and exported. Here is the concrete sequence to close data-loss risks, restore fast dev plans, and wire automated intake governance.
+          </p>
+        </div>
+
+        <div class="slide-grid-3 anim-in anim-d1">
+          <div class="slide-card alert-card">
+            <h3><span>1. Week 1: Data-Safety Sprint</span><span class="slide-layout-tag">Reliability P0</span></h3>
+            <ul>
+              <li>Patch ClickHouse swallowed swap errors (<button type="button" class="slide-issue-btn" data-inspect="6087">#6087</button>) &amp; `insert_quorum` override (<button type="button" class="slide-issue-btn" data-inspect="6171">#6171</button>).</li>
+              <li>Fix `UNION BY NAME` silent column drop (<button type="button" class="slide-issue-btn" data-inspect="6212">#6212</button>) &amp; `SEED` CSV pre-inference (<button type="button" class="slide-issue-btn" data-inspect="6135">#6135</button>).</li>
+              <li>Fix `at_least_one` 0-row false pass (<button type="button" class="slide-issue-btn" data-inspect="6198">#6198</button>) &amp; `DIALECT_PATTERN` `O(2^n)` hang (<button type="button" class="slide-issue-btn" data-inspect="6203">#6203</button>).</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>2. Month 1: Scale &amp; Ecosystem</span><span class="slide-layout-tag">High-Leverage</span></h3>
+            <ul>
+              <li>Cache `to_table_mapping` &amp; `snapshot_by_name` in `promote()` (<button type="button" class="slide-issue-btn" data-inspect="6014">#6014</button>, <button type="button" class="slide-issue-btn" data-inspect="6018">#6018</button>, <button type="button" class="slide-issue-btn" data-inspect="6019">#6019</button>).</li>
+              <li>Ship subgraph loading (`--use-project-index`) across `plan dev`, `render`, and `test` (<button type="button" class="slide-issue-btn" data-inspect="5906">#5906</button>, <button type="button" class="slide-issue-btn" data-inspect="5905">#5905</button>, <button type="button" class="slide-issue-btn" data-inspect="6024">#6024</button>).</li>
+              <li>Scope dbt `manifest.json` export (<button type="button" class="slide-issue-btn" data-inspect="5821">#5821</button>), model-name error context (<button type="button" class="slide-issue-btn" data-inspect="6064">#6064</button>), &amp; `create_schemas: false` (<button type="button" class="slide-issue-btn" data-inspect="5623">#5623</button>).</li>
+            </ul>
+          </div>
+
+          <div class="slide-card">
+            <h3><span>3. Four Maintainer Decisions</span><span class="slide-layout-tag">Approve Today</span></h3>
+            <ul>
+              <li><strong>Project Scope:</strong> Confirm `state:open` (211) vs. a specific LF GitHub Project v2 column.</li>
+              <li><strong>Backfill 60 Unlabeled Issues:</strong> Run one-shot `gh issue edit` pass from our catalog CSV.</li>
+              <li><strong>Label Cleanup:</strong> Create the 3 new labels, retire 4 dead tags, add `.github/ISSUE_TEMPLATE/*.yml` auto-labels.</li>
+              <li><strong>SQLGlot Policy:</strong> Tag parser-rooted issues (<button type="button" class="slide-issue-btn" data-inspect="5948">#5948</button>, <button type="button" class="slide-issue-btn" data-inspect="5770">#5770</button>) with `upstream: sqlglot`.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide-card anim-in anim-d2" style="flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+          <p style="margin:0;"><strong>Drill into the full dataset:</strong> Jump straight from this deck into any interactive dashboard view or download the 211-row CSV.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <button type="button" class="deck-btn accent" data-exit-to-view="catalog">Open 211-Issue Table</button>
+            <button type="button" class="deck-btn" data-exit-to-view="labels">Open 32-Label Audit</button>
+            <button type="button" class="deck-btn" data-exit-to-view="notebook">Open Markdown Lab Notebook</button>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>Let's bring this home on Slide 10 with a concrete 30-day plan and four quick decisions we can make right in this room.</p>
+          <p><strong>Week 1</strong> is a focused <strong>Data-Safety Sprint</strong>: six crisp PRs fixing ClickHouse table swaps (<strong>#6087</strong>) and quorum settings (<strong>#6171</strong>), <code>UNION BY NAME</code> column drops (<strong>#6212</strong>), <code>SEED</code> CSV precision loss (<strong>#6135</strong>), the 0-row <code>at_least_one</code> audit bug (<strong>#6198</strong>), and the regex loader hang (<strong>#6203</strong>). Most of these tickets already pinpoint the offending function in the issue body!</p>
+          <p><strong>Month 1</strong> tackles the 45-minute virtual-layer stall (<strong>#6014</strong>) and subgraph loading (<strong>#5906</strong>), plus scoping <code>manifest.json</code> export (<strong>#5821</strong>) and printing failing model names on driver crashes (<strong>#6064</strong>).</p>
+          <p>To lock in governance today, we just need thumbs-up on the four decisions on the right—starting with running a one-shot <code>gh issue edit</code> backfill across the 60 unlabeled tickets using our exported CSV. Let's open it up for questions, or click straight into the live table!</p>
+        </aside>
+      </section>
+
+      <!-- O-Key Slide Overview Modal -->
+      <div class="deck-overview-modal" id="deck-overview-modal" aria-label="Slide overview grid">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <h3 style="margin:0;font-size:1.1rem;">Slide Overview (10 Slides — Click any card to jump)</h3>
+          <button type="button" class="deck-btn" id="btn-close-overview">Close Overview (Esc)</button>
+        </div>
+        <div class="overview-grid" id="deck-overview-grid"></div>
+      </div>
+
+      <!-- S-Key 4-Card Presenter Studio Overlay (html-ppt-skill Magnetic Cards Architecture) -->
+      <div class="presenter-studio" id="presenter-studio" aria-label="Presenter Studio">
+        <div class="p-card">
+          <div class="p-card-head">
+            <span><span class="p-dot" style="background:#38BDF8;"></span>CURRENT SLIDE</span>
+            <span id="p-cur-meta">Slide 1 / 10</span>
+          </div>
+          <div class="p-card-body" id="p-cur-preview"></div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-head">
+            <span><span class="p-dot" style="background:#C084FC;"></span>NEXT SLIDE PREVIEW</span>
+            <span id="p-next-meta">Slide 2 / 10</span>
+          </div>
+          <div class="p-card-body" id="p-next-preview"></div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-head">
+            <span><span class="p-dot" style="background:#FB923C;"></span>SPEAKER SCRIPT (CONVERSATIONAL PROMPT SIGNALS)</span>
+            <span>150–250 words</span>
+          </div>
+          <div class="p-card-body p-script-body" id="p-script-content"></div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-head">
+            <span><span class="p-dot" style="background:#4ADE80;"></span>ELAPSED TIMER &amp; DECK CONTROLS</span>
+            <span>Shortcut: R to reset</span>
+          </div>
+          <div class="p-card-body" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+            <div>
+              <p class="p-timer-clock" id="p-timer-clock">00:00</p>
+              <p style="margin:4px 0 0 0;font-size:0.82rem;color:#94A3B8;">Target pace: ~2–3 min per slide (~22 min full engineering walkthrough)</p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <button type="button" class="deck-btn" id="btn-p-prev">Prev Slide</button>
+              <button type="button" class="deck-btn accent" id="btn-p-next">Next Slide</button>
+              <button type="button" class="deck-btn" id="btn-p-reset-timer">Reset Timer (R)</button>
+              <button type="button" class="deck-btn" id="btn-p-popout" title="Open dual-screen synced popup window">Pop Out Dual-Screen Window</button>
+              <button type="button" class="deck-btn" id="btn-p-close">Close Presenter (S)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- N-Key Quick Bottom Speaker Notes Drawer -->
+    <div class="deck-notes-drawer" id="deck-notes-drawer" aria-live="polite">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <strong style="font-size:0.8rem;font-family:var(--font-mono);color:var(--deck-accent);">SPEAKER NOTES (Press N to hide, S for full 4-card Presenter Studio)</strong>
+        <button type="button" class="deck-btn" id="btn-close-notes">Hide</button>
+      </div>
+      <div id="deck-notes-content" style="display:flex;flex-direction:column;gap:8px;"></div>
+    </div>
+
+    <footer class="deck-footer">
+      <div class="deck-nav-cluster">
+        <button type="button" class="deck-btn" id="btn-slide-prev" aria-label="Previous slide">Prev</button>
+        <span class="slide-number" id="deck-slide-counter">1 / 10</span>
+        <button type="button" class="deck-btn" id="btn-slide-next" aria-label="Next slide">Next</button>
+      </div>
+      <div>
+        Keys: <code>← → Space</code> navigate | <code>T</code> theme | <code>A</code> anim | <code>O</code> overview | <code>N</code> notes | <code>S</code> presenter | <code>F</code> fullscreen | <code>Esc</code> dashboard
+      </div>
+    </footer>
+  </div>
+
 
   <!-- Hover Preview Tooltip -->
   <div class="hover-card" id="issue-hover-card" role="tooltip" aria-hidden="true"></div>
@@ -2063,15 +3509,55 @@
       }
 
       var currentFiltered = issues.slice();
+      var catalogPage = 1;
+      var catalogPageSize = 25;
 
-      function renderCatalogTable() {
+      function renderCatalogPager(pageCount) {
+        var pager = document.getElementById("catalog-pager");
+        var pagesEl = document.getElementById("catalog-pager-pages");
+        if (!pager || !pagesEl) return;
+        if (currentFiltered.length === 0) {
+          pager.hidden = true;
+          pagesEl.innerHTML = "";
+          return;
+        }
+        pager.hidden = false;
+        var pages = [1];
+        for (var n = catalogPage - 1; n <= catalogPage + 1; n++) {
+          if (n > 1 && n < pageCount) pages.push(n);
+        }
+        if (pageCount > 1) pages.push(pageCount);
+        pages = pages.filter(function (n, i) { return pages.indexOf(n) === i; }).sort(function (a, b) { return a - b; });
+
+        var html = "<button type=\"button\" class=\"page-btn\" data-page=\"prev\"" + (catalogPage === 1 ? " disabled" : "") + ">Previous</button>";
+        var last = 0;
+        pages.forEach(function (n) {
+          if (n - last > 1) html += "<span class=\"page-ellipsis\" aria-hidden=\"true\">…</span>";
+          html += "<button type=\"button\" class=\"page-btn\" data-page=\"" + n + "\"" + (n === catalogPage ? " aria-current=\"page\"" : "") + ">" + n + "</button>";
+          last = n;
+        });
+        html += "<button type=\"button\" class=\"page-btn\" data-page=\"next\"" + (catalogPage === pageCount ? " disabled" : "") + ">Next</button>";
+        pagesEl.innerHTML = html;
+      }
+
+      function renderCatalogTable(keepPage) {
         currentFiltered = getFilteredIssues();
+        var pageCount = Math.max(1, Math.ceil(currentFiltered.length / catalogPageSize));
+        if (keepPage !== true) catalogPage = 1;
+        if (catalogPage > pageCount) catalogPage = pageCount;
+        if (catalogPage < 1) catalogPage = 1;
+
+        var start = currentFiltered.length === 0 ? 0 : (catalogPage - 1) * catalogPageSize;
+        var end = Math.min(currentFiltered.length, start + catalogPageSize);
+        var pageRows = currentFiltered.slice(start, end);
         document.getElementById("nav-filtered-count").textContent = String(currentFiltered.length);
-        document.getElementById("catalog-status-text").innerHTML =
-          "Showing <strong>" + currentFiltered.length + "</strong> of 211 open issues";
+        document.getElementById("catalog-status-text").innerHTML = currentFiltered.length === 0
+          ? "Showing <strong>0</strong> of 211 open issues"
+          : "Showing <strong>" + (start + 1) + "–" + end + "</strong> of <strong>" + currentFiltered.length + "</strong>" + (currentFiltered.length === issues.length ? " open issues" : " matches");
 
         var tbody = document.getElementById("issues-table-body");
         var emptyBox = document.getElementById("catalog-empty-state");
+        renderCatalogPager(pageCount);
 
         if (currentFiltered.length === 0) {
           tbody.innerHTML = "";
@@ -2080,7 +3566,7 @@
         }
         emptyBox.style.display = "none";
 
-        tbody.innerHTML = currentFiltered.map(function (it) {
+        tbody.innerHTML = pageRows.map(function (it) {
           var secHtml = it.secondary_pillar
             ? "<span class=\"pillar-tag pillar-" + it.secondary_pillar + "\">" + esc(it.secondary_pillar) + "</span>"
             : "<span style=\"color:var(--ink-muted);\">—</span>";
@@ -2145,6 +3631,24 @@
           else { sortField = f; sortAsc = true; }
           renderCatalogTable();
         });
+      });
+
+      document.getElementById("catalog-pager-pages").addEventListener("click", function (e) {
+        var btn = e.target.closest ? e.target.closest("[data-page]") : null;
+        if (!btn || btn.disabled) return;
+        var pageCount = Math.max(1, Math.ceil(currentFiltered.length / catalogPageSize));
+        var target = btn.getAttribute("data-page");
+        if (target === "prev") catalogPage -= 1;
+        else if (target === "next") catalogPage += 1;
+        else catalogPage = Number(target);
+        if (catalogPage < 1) catalogPage = 1;
+        if (catalogPage > pageCount) catalogPage = pageCount;
+        renderCatalogTable(true);
+      });
+
+      document.getElementById("catalog-page-size").addEventListener("change", function (e) {
+        catalogPageSize = Number(e.target.value) || 25;
+        renderCatalogTable();
       });
 
       renderCatalogTable();
@@ -2309,6 +3813,7 @@
         var chartEl = e.target.closest("[data-chart-pillar],[data-chart-secondary],[data-chart-label],[data-chart-conf],[data-chart-quarter]");
         if (chartEl) {
           e.preventDefault();
+          if (typeof closeSlideMode === "function") closeSlideMode();
           resetCatalogFilters(false);
           if (chartEl.getAttribute("data-chart-pillar")) {
             document.getElementById("f-primary").value = chartEl.getAttribute("data-chart-pillar");
@@ -2539,6 +4044,374 @@
       });
 
       renderActiveMdView();
+
+      /* ----------------------------------------------------------------------
+         HTML-PPT Studio Slide Mode Runtime (Guided by lewislulu/html-ppt-skill)
+         Themes (T), Animations (A), Overview (O), Notes (N), Presenter (S),
+         Timer Reset (R), Fullscreen (F), Deep-Links (#/N) & ?preview=N
+         ---------------------------------------------------------------------- */
+      var deckOverlay = document.getElementById("slide-deck-overlay");
+      var slides = Array.prototype.slice.call(document.querySelectorAll("#deck-stage > .slide"));
+      var overviewModal = document.getElementById("deck-overview-modal");
+      var overviewGrid = document.getElementById("deck-overview-grid");
+      var notesDrawer = document.getElementById("deck-notes-drawer");
+      var notesContent = document.getElementById("deck-notes-content");
+      var presenterStudio = document.getElementById("presenter-studio");
+
+      var DECK_THEMES = [
+        { id: "engineering-whiteprint", label: "whiteprint" },
+        { id: "tokyo-night", label: "tokyo-night" },
+        { id: "blueprint", label: "blueprint" },
+        { id: "catppuccin-mocha", label: "catppuccin" },
+        { id: "corporate-clean", label: "corporate" }
+      ];
+      var DECK_ANIMS = ["fade-up", "rise-scale", "none"];
+      var themeIdx = 0;
+      var animIdx = 0;
+      var currentSlideIdx = 0;
+      var presenterStartMs = Date.now();
+      var presenterTimerId = null;
+      var pptChannel = (typeof BroadcastChannel !== "undefined") ? new BroadcastChannel("sqlmesh-ppt-sync") : null;
+
+      function formatClock(sec) {
+        var m = Math.floor(sec / 60);
+        var s = sec % 60;
+        return (m < 10 ? "0" + m : String(m)) + ":" + (s < 10 ? "0" + s : String(s));
+      }
+
+      function updateTimerDisplay() {
+        var elapsed = Math.max(0, Math.floor((Date.now() - presenterStartMs) / 1000));
+        var clockEl = document.getElementById("p-timer-clock");
+        if (clockEl) clockEl.textContent = formatClock(elapsed);
+      }
+
+      function resetPresenterTimer() {
+        presenterStartMs = Date.now();
+        updateTimerDisplay();
+      }
+
+      function summarizeSlideForCard(slideEl) {
+        if (!slideEl) return "<p style=\"color:#94A3B8;\">End of presentation deck.</p>";
+        var ch = slideEl.getAttribute("data-chapter") || "";
+        var title = slideEl.getAttribute("data-title") || "";
+        var layout = slideEl.getAttribute("data-layout") || "";
+        var leadEl = slideEl.querySelector ? slideEl.querySelector(".slide-lead") : null;
+        var leadTxt = leadEl ? leadEl.textContent : "";
+        return (
+          "<div style=\"display:flex;flex-direction:column;gap:8px;\">" +
+            "<div style=\"font-family:var(--font-mono);font-size:0.75rem;color:#7DD3FC;\">" + esc(ch) + " | Layout: " + esc(layout) + "</div>" +
+            "<div style=\"font-size:1.1rem;font-weight:700;color:#F8FAFC;\">" + esc(title) + "</div>" +
+            "<p style=\"margin:0;font-size:0.86rem;color:#CBD5E1;line-height:1.5;\">" + esc(leadTxt) + "</p>" +
+          "</div>"
+        );
+      }
+
+      function renderOverviewGrid() {
+        if (!overviewGrid) return;
+        overviewGrid.innerHTML = slides.map(function (sl, i) {
+          var ch = sl.getAttribute("data-chapter") || ("Slide " + (i + 1));
+          var title = sl.getAttribute("data-title") || "";
+          var layout = sl.getAttribute("data-layout") || "slide";
+          var activeAttr = (i === currentSlideIdx) ? " aria-current=\"true\"" : "";
+          return (
+            "<button type=\"button\" class=\"overview-thumb\" data-overview-goto=\"" + i + "\"" + activeAttr + ">" +
+              "<div style=\"display:flex;justify-content:space-between;width:100%;font-family:var(--font-mono);font-size:0.74rem;color:var(--deck-text-3);\">" +
+                "<span>" + esc(ch) + "</span><span>" + esc(layout) + "</span>" +
+              "</div>" +
+              "<div style=\"font-weight:700;font-size:0.94rem;line-height:1.3;\">" + esc(title) + "</div>" +
+            "</button>"
+          );
+        }).join("");
+      }
+
+      function syncSlideUi(broadcast) {
+        var total = slides.length || 10;
+        slides.forEach(function (sl, i) {
+          if (i === currentSlideIdx) sl.classList.add("is-active");
+          else sl.classList.remove("is-active");
+        });
+
+        var activeSlide = slides[currentSlideIdx];
+        var pct = ((currentSlideIdx + 1) / total * 100).toFixed(1) + "%";
+        document.getElementById("deck-progress-fill").style.width = pct;
+        document.getElementById("deck-slide-counter").textContent = (currentSlideIdx + 1) + " / " + total;
+        if (activeSlide) {
+          document.getElementById("deck-chapter-label").textContent = activeSlide.getAttribute("data-chapter") || ("Slide " + (currentSlideIdx + 1));
+          var notesEl = activeSlide.querySelector ? activeSlide.querySelector("aside.notes") : null;
+          var notesHtml = notesEl ? notesEl.innerHTML : "<p>No speaker notes on this slide.</p>";
+          notesContent.innerHTML = notesHtml;
+          document.getElementById("p-script-content").innerHTML = notesHtml;
+        }
+
+        document.getElementById("p-cur-meta").textContent = "Slide " + (currentSlideIdx + 1) + " / " + total;
+        document.getElementById("p-cur-preview").innerHTML = summarizeSlideForCard(slides[currentSlideIdx]);
+        document.getElementById("p-next-meta").textContent = (currentSlideIdx + 1 < total) ? ("Slide " + (currentSlideIdx + 2) + " / " + total) : "Final Slide";
+        document.getElementById("p-next-preview").innerHTML = summarizeSlideForCard(slides[currentSlideIdx + 1] || null);
+
+        if (overviewModal.classList.contains("open")) renderOverviewGrid();
+
+        if (deckOverlay.classList.contains("open") && window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", "#/" + (currentSlideIdx + 1));
+        }
+        if (broadcast !== false && pptChannel) {
+          pptChannel.postMessage({ type: "goto", idx: currentSlideIdx, themeIdx: themeIdx });
+        }
+      }
+
+      function gotoSlide(idx, broadcast) {
+        var maxIdx = Math.max(0, slides.length - 1);
+        currentSlideIdx = Math.max(0, Math.min(maxIdx, idx));
+        syncSlideUi(broadcast);
+      }
+
+      function openSlideMode(startIdx) {
+        if (typeof startIdx === "number" && !isNaN(startIdx)) {
+          currentSlideIdx = Math.max(0, Math.min(slides.length - 1, startIdx));
+        }
+        deckOverlay.classList.add("open");
+        if (!presenterTimerId && typeof setInterval === "function") {
+          presenterStartMs = Date.now();
+          presenterTimerId = setInterval(updateTimerDisplay, 1000);
+        }
+        syncSlideUi(true);
+      }
+
+      function closeSlideMode() {
+        overviewModal.classList.remove("open");
+        presenterStudio.classList.remove("open");
+        notesDrawer.classList.remove("open");
+        deckOverlay.classList.remove("open");
+        if (window.history && window.history.replaceState && window.location && String(window.location.hash).indexOf("#/") === 0) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      }
+
+      function cycleDeckTheme(broadcast) {
+        themeIdx = (themeIdx + 1) % DECK_THEMES.length;
+        var t = DECK_THEMES[themeIdx];
+        deckOverlay.setAttribute("data-theme", t.id);
+        document.getElementById("deck-theme-name").textContent = t.label;
+        if (broadcast !== false && pptChannel) {
+          pptChannel.postMessage({ type: "theme", themeIdx: themeIdx });
+        }
+      }
+
+      function cycleDeckAnim() {
+        animIdx = (animIdx + 1) % DECK_ANIMS.length;
+        var a = DECK_ANIMS[animIdx];
+        deckOverlay.setAttribute("data-anim", a);
+        document.getElementById("deck-anim-name").textContent = a;
+      }
+
+      function toggleOverview() {
+        var willOpen = !overviewModal.classList.contains("open");
+        if (willOpen) {
+          presenterStudio.classList.remove("open");
+          renderOverviewGrid();
+          overviewModal.classList.add("open");
+        } else {
+          overviewModal.classList.remove("open");
+        }
+      }
+
+      function toggleNotes() {
+        notesDrawer.classList.toggle("open");
+      }
+
+      function togglePresenter() {
+        var willOpen = !presenterStudio.classList.contains("open");
+        if (willOpen) {
+          overviewModal.classList.remove("open");
+          updateTimerDisplay();
+          presenterStudio.classList.add("open");
+        } else {
+          presenterStudio.classList.remove("open");
+        }
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement && deckOverlay.requestFullscreen) {
+          deckOverlay.requestFullscreen();
+        } else if (document.exitFullscreen && document.fullscreenElement) {
+          document.exitFullscreen();
+        }
+      }
+
+      function openDualScreenPresenterPopup() {
+        if (!window.open || !window.location) return;
+        var baseUrl = window.location.href.split("#")[0].split("?")[0];
+        presenterStudio.classList.remove("open");
+        window.open(baseUrl + "?presenter=1#/" + (currentSlideIdx + 1), "sqlmesh_ppt_presenter", "width=1120,height=760");
+      }
+
+      if (pptChannel) {
+        pptChannel.onmessage = function (ev) {
+          if (!ev || !ev.data) return;
+          if (ev.data.type === "goto") gotoSlide(ev.data.idx, false);
+          else if (ev.data.type === "cmd-prev") gotoSlide(currentSlideIdx - 1, true);
+          else if (ev.data.type === "cmd-next") gotoSlide(currentSlideIdx + 1, true);
+          else if (ev.data.type === "theme") {
+            themeIdx = (ev.data.themeIdx - 1 + DECK_THEMES.length) % DECK_THEMES.length;
+            cycleDeckTheme(false);
+          }
+        };
+      }
+
+      if (window.addEventListener) {
+        window.addEventListener("message", function (ev) {
+          if (ev && ev.data && ev.data.type === "preview-goto") {
+            gotoSlide(Number(ev.data.idx) || 0, false);
+          }
+        });
+      }
+
+      // Launch & Control Buttons
+      document.getElementById("btn-launch-slides-sidebar").addEventListener("click", function () { openSlideMode(currentSlideIdx); });
+      document.getElementById("btn-launch-slides-top").addEventListener("click", function () { openSlideMode(0); });
+      document.getElementById("btn-exit-slides").addEventListener("click", closeSlideMode);
+      document.getElementById("btn-slide-prev").addEventListener("click", function () { gotoSlide(currentSlideIdx - 1, true); });
+      document.getElementById("btn-slide-next").addEventListener("click", function () { gotoSlide(currentSlideIdx + 1, true); });
+      document.getElementById("btn-deck-theme").addEventListener("click", function () { cycleDeckTheme(true); });
+      document.getElementById("btn-deck-anim").addEventListener("click", cycleDeckAnim);
+      document.getElementById("btn-deck-overview").addEventListener("click", toggleOverview);
+      document.getElementById("btn-close-overview").addEventListener("click", function () { overviewModal.classList.remove("open"); });
+      document.getElementById("btn-deck-notes").addEventListener("click", toggleNotes);
+      document.getElementById("btn-close-notes").addEventListener("click", function () { notesDrawer.classList.remove("open"); });
+      document.getElementById("btn-deck-presenter").addEventListener("click", togglePresenter);
+      document.getElementById("btn-p-prev").addEventListener("click", function () { gotoSlide(currentSlideIdx - 1, true); });
+      document.getElementById("btn-p-next").addEventListener("click", function () { gotoSlide(currentSlideIdx + 1, true); });
+      document.getElementById("btn-p-reset-timer").addEventListener("click", resetPresenterTimer);
+      document.getElementById("btn-p-popout").addEventListener("click", openDualScreenPresenterPopup);
+      document.getElementById("btn-p-close").addEventListener("click", function () { presenterStudio.classList.remove("open"); });
+      document.getElementById("btn-deck-fullscreen").addEventListener("click", toggleFullscreen);
+
+      deckOverlay.addEventListener("click", function (e) {
+        if (!e.target.closest) return;
+        var gotoBtn = e.target.closest("[data-goto-slide]");
+        if (gotoBtn) {
+          e.preventDefault();
+          gotoSlide(Number(gotoBtn.getAttribute("data-goto-slide")), true);
+          return;
+        }
+        var ovBtn = e.target.closest("[data-overview-goto]");
+        if (ovBtn) {
+          e.preventDefault();
+          overviewModal.classList.remove("open");
+          gotoSlide(Number(ovBtn.getAttribute("data-overview-goto")), true);
+          return;
+        }
+        var exitViewBtn = e.target.closest("[data-exit-to-view]");
+        if (exitViewBtn) {
+          e.preventDefault();
+          var targetView = exitViewBtn.getAttribute("data-exit-to-view");
+          closeSlideMode();
+          switchView(targetView);
+        }
+      });
+
+      // Keyboard Navigation Runtime (html-ppt-skill cheat sheet)
+      document.addEventListener("keydown", function (e) {
+        var tag = (e.target && e.target.tagName) ? e.target.tagName.toUpperCase() : "";
+        var inInput = (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA");
+
+        // Allow 'P' from dashboard to launch Slide Story Mode
+        if (!deckOverlay.classList.contains("open")) {
+          if (!inInput && !e.metaKey && !e.ctrlKey && !e.altKey && (e.key === "p" || e.key === "P") && !drawer.classList.contains("open")) {
+            e.preventDefault();
+            openSlideMode(currentSlideIdx);
+          }
+          return;
+        }
+
+        // If issue inspector drawer is open on top of Slide Mode, let Esc close the drawer only!
+        if (drawer.classList.contains("open")) return;
+        if (inInput) return;
+
+        if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+          e.preventDefault();
+          gotoSlide(currentSlideIdx + 1, true);
+        } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+          e.preventDefault();
+          gotoSlide(currentSlideIdx - 1, true);
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          gotoSlide(0, true);
+        } else if (e.key === "End") {
+          e.preventDefault();
+          gotoSlide(slides.length - 1, true);
+        } else if (e.key === "t" || e.key === "T") {
+          e.preventDefault();
+          cycleDeckTheme(true);
+        } else if (e.key === "a" || e.key === "A") {
+          e.preventDefault();
+          cycleDeckAnim();
+        } else if (e.key === "o" || e.key === "O") {
+          e.preventDefault();
+          toggleOverview();
+        } else if (e.key === "n" || e.key === "N") {
+          e.preventDefault();
+          toggleNotes();
+        } else if (e.key === "s" || e.key === "S") {
+          e.preventDefault();
+          togglePresenter();
+        } else if (e.key === "r" || e.key === "R") {
+          if (presenterStudio.classList.contains("open")) {
+            e.preventDefault();
+            resetPresenterTimer();
+          }
+        } else if (e.key === "f" || e.key === "F") {
+          if (!e.metaKey && !e.ctrlKey) {
+            e.preventDefault();
+            toggleFullscreen();
+          }
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          if (overviewModal.classList.contains("open")) overviewModal.classList.remove("open");
+          else if (presenterStudio.classList.contains("open")) presenterStudio.classList.remove("open");
+          else if (notesDrawer.classList.contains("open")) notesDrawer.classList.remove("open");
+          else closeSlideMode();
+        }
+      });
+
+      // Touch Swipe Navigation on mobile/tablet
+      var touchStartX = null;
+      var touchStartY = null;
+      deckOverlay.addEventListener("touchstart", function (e) {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      deckOverlay.addEventListener("touchend", function (e) {
+        if (touchStartX === null || !e.changedTouches || !e.changedTouches.length) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        touchStartX = null;
+        touchStartY = null;
+        if (Math.abs(dx) > 52 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          if (dx < 0) gotoSlide(currentSlideIdx + 1, true);
+          else gotoSlide(currentSlideIdx - 1, true);
+        }
+      }, { passive: true });
+
+      // URL ?preview=N, ?presenter=1, and #/N deep-link support on initial load
+      if (window.location) {
+        var searchStr = String(window.location.search || "");
+        var hashStr = String(window.location.hash || "");
+        var hashSlide = hashStr.match(/^#\/(\d+)$/);
+        var initIdx = hashSlide ? Math.max(0, parseInt(hashSlide[1], 10) - 1) : 0;
+        var previewMatch = searchStr.match(/[?&]preview=(\d+)/);
+        if (previewMatch) {
+          if (document.body && document.body.classList) document.body.classList.add("preview-single-mode");
+          openSlideMode(Math.max(0, parseInt(previewMatch[1], 10) - 1));
+        } else if (searchStr.indexOf("presenter=1") !== -1) {
+          openSlideMode(initIdx);
+          presenterStudio.classList.add("open");
+        } else if (hashSlide) {
+          openSlideMode(initIdx);
+        }
+      }
     })();
   </script>
 </body>
