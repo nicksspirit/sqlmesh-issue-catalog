@@ -1343,6 +1343,412 @@
        HTML-PPT STUDIO SLIDE MODE (Guided by lewislulu/html-ppt-skill)
        Token-driven themes + chrome slots + entry animations + Presenter Studio
        ========================================================================== */
+
+    /* ==========================================================================
+       Upgraded Executive Summary & Objective Priority Signals Layout
+       ========================================================================== */
+    .app-shell :not(pre) > code,
+    .inspector-drawer :not(pre) > code {
+      font-family: var(--font-mono);
+      font-size: 0.83em;
+      background-color: var(--bg-inset);
+      border: 1px solid var(--border-subtle);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--ink-primary);
+    }
+
+    .issue-pill-btn {
+      appearance: none;
+      border: 1px solid var(--border-line);
+      background-color: var(--bg-canvas);
+      color: var(--accent-focus);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: baseline;
+      line-height: 1.35;
+    }
+
+    .issue-pill-btn:hover {
+      background-color: var(--accent-focus);
+      border-color: var(--accent-focus);
+      color: #FFFFFF;
+    }
+
+    .strip-legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .strip-legend-pill {
+      appearance: none;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .strip-legend-pill:hover {
+      background-color: var(--bg-inset);
+      border-color: var(--border-line);
+    }
+
+    .strip-legend-num {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-secondary);
+      font-weight: 600;
+    }
+
+    /* Symmetric 4-column KPI grid (4 -> 2x2 -> 1, never 3+1 orphan) */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 1120px) {
+      .kpi-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 580px) {
+      .kpi-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .kpi-block {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-subtle);
+      border-block-start-width: 3px;
+      border-radius: 8px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    /* Structured Executive Briefing Grid (eliminates 500px dead whitespace) */
+    .exec-brief-shell {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .exec-top-split {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: var(--space-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (max-width: 980px) {
+      .exec-top-split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .exec-lead-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .exec-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-focus);
+      margin: 0;
+    }
+
+    .exec-headline {
+      margin: 0;
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.32;
+      color: var(--ink-primary);
+    }
+
+    .exec-lead-col p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--ink-secondary);
+    }
+
+    .exec-takeaways-col {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .exec-takeaways-col h4 {
+      margin: 0;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .exec-takeaway-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .exec-takeaway-list li {
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--ink-secondary);
+      padding-inline-start: 14px;
+      border-inline-start: 2px solid var(--border-line);
+    }
+
+    .exec-takeaway-list li strong {
+      color: var(--ink-primary);
+    }
+
+    /* 4-Column Pillar Snapshot Strip inside Executive Summary */
+    .exec-pillar-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-lg);
+      align-items: stretch;
+    }
+
+    @media (max-width: 1180px) {
+      .exec-pillar-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .exec-pillar-strip {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .exec-pillar-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      border-block-start-width: 4px;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .exec-pillar-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .exec-pillar-head h4 {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .exec-pillar-count {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-primary);
+    }
+
+    .exec-pillar-meta {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+
+    .exec-pillar-card ul {
+      margin: 0;
+      padding-inline-start: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.83rem;
+      line-height: 1.48;
+      color: var(--ink-secondary);
+    }
+
+    .exec-pillar-foot {
+      margin-block-start: auto;
+      padding-block-start: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-block-start: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+    }
+
+    .exec-uncat-bar {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Dedicated Section: Objective Priority Signals by Pillar (2x2 Matrix) */
+    .priority-signals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+      align-items: stretch;
+    }
+
+    @media (max-width: 920px) {
+      .priority-signals-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .priority-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      border-inline-start-width: 4px;
+      border-radius: 10px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .priority-card-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .priority-gate-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .priority-bias-note {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+      background-color: var(--bg-canvas);
+      border-radius: 6px;
+      padding: 8px 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .priority-cue-list {
+      margin: 0;
+      padding-inline-start: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--ink-primary);
+    }
+
+    .priority-cue-list li span.sub-detail {
+      color: var(--ink-secondary);
+    }
+
+    .priority-contrast-row {
+      margin-block-start: auto;
+      padding-block-start: 10px;
+      border-block-start: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.81rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Symmetric 2x3 Charts Grid & Balanced 2x2 / 3-col Card Grids */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-xl);
+      align-items: stretch;
+    }
+
+    @media (max-width: 980px) {
+      .charts-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .chart-panel {
+      justify-content: space-between;
+    }
+
+    .assumptions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .assumptions-grid.three-up {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 900px) {
+      .assumptions-grid,
+      .assumptions-grid.three-up {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     .slide-deck-overlay {
       /* Default Theme: engineering-whiteprint */
       --deck-bg: #F4F6FA;
@@ -2067,9 +2473,9 @@
 
       <nav class="nav-group" aria-label="Primary views">
         <p class="nav-group-heading">Views &amp; Story</p>
-        <button type="button" class="nav-btn slide-launch-btn" id="btn-launch-slides-sidebar" title="Launch 9-slide maintainer cataloging story deck (Shortcut: P)">
+        <button type="button" class="nav-btn slide-launch-btn" id="btn-launch-slides-sidebar" title="Launch 10-slide maintainer cataloging & priority story deck (Shortcut: P)">
           <span>Slide Story Mode</span>
-          <span class="nav-count">9 slides</span>
+          <span class="nav-count">10 slides</span>
         </button>
         <button type="button" class="nav-btn" data-view="overview" aria-current="page">
           <span>Overview &amp; Charts</span>
@@ -2134,51 +2540,301 @@
       <section class="view-panel active" id="view-overview" aria-labelledby="title-overview">
         <header class="page-header">
           <div class="page-header-copy">
-            <h2 class="page-title" id="title-overview">SQLMesh Pending Issue Catalog &amp; Pillar Alignment</h2>
+            <h2 class="page-title" id="title-overview">SQLMesh Pending Issue Catalog &amp; Maintainer Triage Briefing</h2>
             <p class="page-subtitle">
-              Exhaustive triage audit of all <strong>211 open issues</strong> and <strong>32 repository labels</strong> in
-              <a href="https://github.com/SQLMesh/sqlmesh" target="_blank" rel="noopener" class="text-action-link">SQLMesh/sqlmesh</a>
-              (Linux Foundation governance). Click any chart bar, slice, or heatmap cell to jump straight to the filtered issue catalog.
+              Exhaustive audit of all <strong>211 open issues</strong> and <strong>32 repository labels</strong> in
+              <a href="https://github.com/SQLMesh/sqlmesh" target="_blank" rel="noopener" class="text-action-link">SQLMesh/sqlmesh</a>.
+              Pairs <strong>Strategic Pillars</strong> (impact contract) with <strong>Triage Labels</strong> (subsystem routing) and defines bias-free priority escalation cues.
             </p>
           </div>
           <div class="header-actions">
-            <button type="button" class="btn-control primary" id="btn-launch-slides-top">Present Story (9 Slides)</button>
+            <button type="button" class="btn-control primary" id="btn-launch-slides-top">Present Story (10 Slides)</button>
             <button type="button" class="btn-control" data-jump-view="catalog">Browse all 211 issues</button>
             <button type="button" class="btn-control" id="btn-export-csv-top">Download CSV catalog</button>
           </div>
         </header>
 
-        <!-- Pre-Rendered Interactive Telemetry Strip & KPIs -->
+        <!-- Signature Telemetry Strip & Symmetric 4-Column KPI Row -->
         <div class="telemetry-hero">
           <div class="telemetry-top">
             <h3 class="telemetry-headline">Backlog composition across the four strategic pillars (n = 211 open issues)</h3>
-            <p class="telemetry-caption">Click any pillar segment to filter the 211-issue catalog</p>
+            <p class="telemetry-caption">Click any bar segment or legend pill to filter the 211-issue catalog</p>
           </div>
 
-          <div class="proportion-strip" id="hero-proportion-strip" role="group" aria-label="Pillar distribution segments">
-            <button type="button" class="strip-seg" data-chart-pillar="Reliability" style="flex:107;background:#D92D20" title="Reliability: 107 open issues (50.7%) — click to filter catalog"><span class="strip-seg-label">Reliability</span><span class="strip-seg-val">107 (50.7%)</span></button><button type="button" class="strip-seg" data-chart-pillar="Adoption" style="flex:52;background:#079455" title="Adoption: 52 open issues (24.6%) — click to filter catalog"><span class="strip-seg-label">Adoption</span><span class="strip-seg-val">52 (24.6%)</span></button><button type="button" class="strip-seg" data-chart-pillar="Scalability" style="flex:34;background:#1570EF" title="Scalability: 34 open issues (16.1%) — click to filter catalog"><span class="strip-seg-label">Scalability</span><span class="strip-seg-val">34 (16.1%)</span></button><button type="button" class="strip-seg" data-chart-pillar="Extensibility" style="flex:15;background:#6938EF" title="Extensibility: 15 open issues (7.1%) — click to filter catalog"><span class="strip-seg-label">Extensibility</span><span class="strip-seg-val">15 (7.1%)</span></button><button type="button" class="strip-seg" data-chart-pillar="Uncategorized" style="flex:4;background:#667085" title="Uncategorized: 3 open issues (1.4%) — click to filter catalog"><span class="strip-seg-label">Uncategorized</span><span class="strip-seg-val">3 (1.4%)</span></button>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="proportion-strip" id="hero-proportion-strip" role="group" aria-label="Pillar distribution segments">
+              <button type="button" class="strip-seg" data-chart-pillar="Reliability" style="flex:107;background:#D92D20" title="Reliability: 107 open issues (50.7%) — click to filter catalog"><span class="strip-seg-label">Reliability</span><span class="strip-seg-val">107 (50.7%)</span></button>
+              <button type="button" class="strip-seg" data-chart-pillar="Adoption" style="flex:52;background:#079455" title="Adoption: 52 open issues (24.6%) — click to filter catalog"><span class="strip-seg-label">Adoption</span><span class="strip-seg-val">52 (24.6%)</span></button>
+              <button type="button" class="strip-seg" data-chart-pillar="Scalability" style="flex:34;background:#1570EF" title="Scalability: 34 open issues (16.1%) — click to filter catalog"><span class="strip-seg-label">Scalability</span><span class="strip-seg-val">34 (16.1%)</span></button>
+              <button type="button" class="strip-seg" data-chart-pillar="Extensibility" style="flex:15;background:#6938EF;justify-content:center;padding-inline:4px;" title="Extensibility: 15 open issues (7.1%) — click to filter catalog"><span class="strip-seg-val">15</span></button>
+              <button type="button" class="strip-seg" data-chart-pillar="Uncategorized" style="flex:4;background:#667085;padding-inline:0;" title="Uncategorized: 3 open issues (1.4%) — click to filter catalog" aria-label="Uncategorized: 3 open issues (1.4%)"></button>
+            </div>
+
+            <div class="strip-legend-row" aria-label="Pillar counts legend">
+              <button type="button" class="strip-legend-pill" data-chart-pillar="Reliability"><span class="legend-swatch" style="background:#D92D20"></span>Reliability <span class="strip-legend-num">107 (50.7%)</span></button>
+              <button type="button" class="strip-legend-pill" data-chart-pillar="Adoption"><span class="legend-swatch" style="background:#079455"></span>Adoption <span class="strip-legend-num">52 (24.6%)</span></button>
+              <button type="button" class="strip-legend-pill" data-chart-pillar="Scalability"><span class="legend-swatch" style="background:#1570EF"></span>Scalability <span class="strip-legend-num">34 (16.1%)</span></button>
+              <button type="button" class="strip-legend-pill" data-chart-pillar="Extensibility"><span class="legend-swatch" style="background:#6938EF"></span>Extensibility <span class="strip-legend-num">15 (7.1%)</span></button>
+              <button type="button" class="strip-legend-pill" data-chart-pillar="Uncategorized"><span class="legend-swatch" style="background:#667085"></span>Uncategorized <span class="strip-legend-num">3 (1.4%)</span></button>
+            </div>
           </div>
 
           <div class="kpi-row" id="hero-kpi-row">
-            <div class="kpi-block">
+            <div class="kpi-block" style="border-block-start-color:#0F172A;">
               <p class="kpi-num">211</p>
               <p class="kpi-label">Open issues cataloged</p>
-              <p class="kpi-detail">100% exhaustive pass; 106 open PRs excluded (317 total GitHub open items)</p>
+              <p class="kpi-detail">Zero-sampling pass across <code>#1391</code>–<code>#6228</code>; 106 open PRs excluded</p>
             </div>
-            <div class="kpi-block">
+            <div class="kpi-block" style="border-block-start-color:#D92D20;">
               <p class="kpi-num">50.7%</p>
               <p class="kpi-label">Reliability primary share</p>
-              <p class="kpi-detail">107 primary + 17 secondary issues, including 13 silent data-loss / audit bugs</p>
+              <p class="kpi-detail">107 primary issues—57 (53.3%) also carry Adoption (38) or Scalability (19) secondary</p>
             </div>
-            <div class="kpi-block">
+            <div class="kpi-block" style="border-block-start-color:#1570EF;">
               <p class="kpi-num">72.0%</p>
-              <p class="kpi-label">Missing triage routing labels</p>
-              <p class="kpi-detail">152 of 211 have 0 routing labels; 60 issues (28.4%) have zero labels of any kind</p>
+              <p class="kpi-label">Missing routing labels</p>
+              <p class="kpi-detail">152 of 211 lack subsystem routing labels; 60 (28.4%) carry zero labels of any kind</p>
             </div>
-            <div class="kpi-block">
+            <div class="kpi-block" style="border-block-start-color:#6938EF;">
               <p class="kpi-num">50.0%</p>
-              <p class="kpi-label">Unlabeled since LF transfer</p>
-              <p class="kpi-detail">36 of 72 issues opened since Mar 25, 2026 carry zero labels (up from 17.3% prior)</p>
+              <p class="kpi-label">Unlabeled post-LF transfer</p>
+              <p class="kpi-detail">36 of 72 issues opened since March 25, 2026 have zero labels (up from 17.3% prior)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Restructured Executive Synthesis (Scannable Split + 4-Column Pillar Cards) -->
+        <div class="section-block" id="exec-summary-section">
+          <div class="section-head">
+            <h3 class="section-title">Executive Synthesis: Organizing Issues by Pillars &amp; Triage Labels</h3>
+            <a href="./README.md" class="text-action-link" data-open-md="README.md">Read full narrative in README.md</a>
+          </div>
+
+          <div class="exec-brief-shell" id="exec-summary-box">
+            <div class="exec-top-split">
+              <div class="exec-lead-col">
+                <p class="exec-kicker">Two-Axis Cataloging Diagnosis</p>
+                <h4 class="exec-headline">Strategic Pillars explain <em>why an issue matters</em>; Triage Labels route <em>who owns the subsystem</em>—today 72% of open issues lack the second axis.</h4>
+                <p>
+                  Because our deterministic rubric assigns any crash, race, regression, or silent wrong output to <strong>Primary: Reliability (107 issues, 50.7%)</strong> even when discovered during a <code>dbt</code> migration or large-repo <code>plan</code>, primary share measures <strong>broken contracts rather than a sprint staffing split</strong>: 57 of those 107 issues also carry <strong>Adoption (38)</strong> or <strong>Scalability (19)</strong> as their secondary pillar.
+                </p>
+                <p>
+                  Meanwhile, 18 of SQLMesh's 23 existing triage labels route strictly by SQL warehouse (<code>Engine:*</code> / <code>Table Format:*</code>), leaving core Python subsystems—snapshot evaluation, DAG loading, silent data/audit integrity, and plugin contracts—without routing labels as post-Linux-Foundation unlabeled intake rose from <strong>17.3%</strong> to <strong>50.0%</strong>.
+                </p>
+              </div>
+
+              <div class="exec-takeaways-col">
+                <h4>How Maintainers Close the Cataloging Gap</h4>
+                <ul class="exec-takeaway-list">
+                  <li><strong>Separate impact from subsystem:</strong> Track <code>Primary</code> &amp; <code>Secondary Pillar</code> on GitHub Projects v2 while keeping repository labels strictly for codebase ownership and risk.</li>
+                  <li><strong>Add 3 missing subsystem/risk labels:</strong> <code>data-correctness</code> (silent wrong data &amp; false-green audits), <code>core: planner-state</code> (evaluator, loader, concurrency), and <code>ecosystem-integration</code> (dbt artifacts, ADBC, catalogs).</li>
+                  <li><strong>Normalize &amp; prune label noise:</strong> Keep <code>Engine:*</code> + <code>Project: dbt</code> + <code>Documentation</code>, rename <code>area: web-ui</code> / <code>area: ide-lsp</code>, and retire <code>Project: Ibis</code>, <code>Scheduler: Airflow</code>, <code>codex</code>, and <code>UX</code>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="exec-pillar-strip">
+              <div class="exec-pillar-card" style="border-block-start-color:var(--rel-bar);">
+                <div class="exec-pillar-head">
+                  <h4>Reliability</h4>
+                  <span class="exec-pillar-count">107 (50.7%)</span>
+                </div>
+                <p class="exec-pillar-meta">+17 secondary = 124 touch · 68.2% unrouted</p>
+                <ul>
+                  <li><strong>Silent data &amp; audit hazards:</strong> ClickHouse swaps/quorum (<button type="button" class="issue-pill-btn" data-inspect="6087">#6087</button>, <button type="button" class="issue-pill-btn" data-inspect="6171">#6171</button>), <code>UNION BY NAME</code> drops (<button type="button" class="issue-pill-btn" data-inspect="6212">#6212</button>), <code>SEED</code> CSV casts (<button type="button" class="issue-pill-btn" data-inspect="6135">#6135</button>), 0-row audits (<button type="button" class="issue-pill-btn" data-inspect="6198">#6198</button>).</li>
+                  <li><strong>SCD2 &amp; planner races:</strong> SCD2 history loss (<button type="button" class="issue-pill-btn" data-inspect="5757">#5757</button>, <button type="button" class="issue-pill-btn" data-inspect="5744">#5744</button>), concurrent plans (<button type="button" class="issue-pill-btn" data-inspect="3866">#3866</button>), regex hang (<button type="button" class="issue-pill-btn" data-inspect="6203">#6203</button>).</li>
+                </ul>
+                <div class="exec-pillar-foot">
+                  <span>34 routed · 73 unrouted</span>
+                  <button type="button" class="text-action-link" data-chart-pillar="Reliability">Filter 107 &rarr;</button>
+                </div>
+              </div>
+
+              <div class="exec-pillar-card" style="border-block-start-color:var(--ado-bar);">
+                <div class="exec-pillar-head">
+                  <h4>Adoption</h4>
+                  <span class="exec-pillar-count">52 (24.6%)</span>
+                </div>
+                <p class="exec-pillar-meta">+69 secondary = 121 touch (57.3%) · 71.2% unrouted</p>
+                <ul>
+                  <li><strong>dbt &amp; ecosystem bridges:</strong> <code>manifest.json</code> export (<button type="button" class="issue-pill-btn" data-inspect="5821">#5821</button>), <code>dbt_expectations</code> Jinja (<button type="button" class="issue-pill-btn" data-inspect="5295">#5295</button>), cutover guides (<button type="button" class="issue-pill-btn" data-inspect="4108">#4108</button>).</li>
+                  <li><strong>Enterprise IAM &amp; CLI UX:</strong> Entra ID (<button type="button" class="issue-pill-btn" data-inspect="5066">#5066</button>), Databricks OAuth refresh (<button type="button" class="issue-pill-btn" data-inspect="5183">#5183</button>), MSSQL 2-part views (<button type="button" class="issue-pill-btn" data-inspect="4741">#4741</button>), driver error context (<button type="button" class="issue-pill-btn" data-inspect="6064">#6064</button>).</li>
+                </ul>
+                <div class="exec-pillar-foot">
+                  <span>15 routed · 37 unrouted</span>
+                  <button type="button" class="text-action-link" data-chart-pillar="Adoption">Filter 52 &rarr;</button>
+                </div>
+              </div>
+
+              <div class="exec-pillar-card" style="border-block-start-color:var(--sca-bar);">
+                <div class="exec-pillar-head">
+                  <h4>Scalability</h4>
+                  <span class="exec-pillar-count">34 (16.1%)</span>
+                </div>
+                <p class="exec-pillar-meta">+31 secondary = 65 touch · 76.5% unrouted</p>
+                <ul>
+                  <li><strong>Python DAG &amp; promotion:</strong> 40–50m <code>O(N²)</code> virtual-layer stall at 2,400 views (<button type="button" class="issue-pill-btn" data-inspect="6014">#6014</button>, <button type="button" class="issue-pill-btn" data-inspect="6018">#6018</button>, <button type="button" class="issue-pill-btn" data-inspect="6019">#6019</button>) &amp; full-repo loads (<button type="button" class="issue-pill-btn" data-inspect="5906">#5906</button>, <button type="button" class="issue-pill-btn" data-inspect="5905">#5905</button>).</li>
+                  <li><strong>Warehouse I/O &amp; fleet config:</strong> Postgres <code>COPY</code> (<button type="button" class="issue-pill-btn" data-inspect="5830">#5830</button>), BigQuery <code>copy_partitions</code> (<button type="button" class="issue-pill-btn" data-inspect="5655">#5655</button>), folder <code>model_defaults</code> (<button type="button" class="issue-pill-btn" data-inspect="4996">#4996</button>).</li>
+                </ul>
+                <div class="exec-pillar-foot">
+                  <span>8 routed · 26 unrouted</span>
+                  <button type="button" class="text-action-link" data-chart-pillar="Scalability">Filter 34 &rarr;</button>
+                </div>
+              </div>
+
+              <div class="exec-pillar-card" style="border-block-start-color:var(--ext-bar);">
+                <div class="exec-pillar-head">
+                  <h4>Extensibility</h4>
+                  <span class="exec-pillar-count">15 (7.1%)</span>
+                </div>
+                <p class="exec-pillar-meta">+20 secondary = 35 touch · 93.3% unrouted</p>
+                <ul>
+                  <li><strong>Non-forking adapter seams:</strong> Snowflake Hybrid Tables state (<button type="button" class="issue-pill-btn" data-inspect="5600">#5600</button>), <code>create_schemas: false</code> (<button type="button" class="issue-pill-btn" data-inspect="5623">#5623</button>), Arrow ADBC driver (<button type="button" class="issue-pill-btn" data-inspect="5814">#5814</button>).</li>
+                  <li><strong>Hooks &amp; catalog specs:</strong> SQL <code>MACRO</code>s (<button type="button" class="issue-pill-btn" data-inspect="2505">#2505</button>), <code>audit pass</code> hooks (<button type="button" class="issue-pill-btn" data-inspect="5865">#5865</button>), OpenMetadata (<button type="button" class="issue-pill-btn" data-inspect="3565">#3565</button>), Ossie (<button type="button" class="issue-pill-btn" data-inspect="5997">#5997</button>).</li>
+                </ul>
+                <div class="exec-pillar-foot">
+                  <span>1 routed · 14 unrouted</span>
+                  <button type="button" class="text-action-link" data-chart-pillar="Extensibility">Filter 15 &rarr;</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="exec-uncat-bar">
+              <div>
+                <span class="pillar-tag pillar-Uncategorized" style="margin-inline-end:6px;">Uncategorized · 3 (1.4%)</span>
+                Kept intentionally outside product pillars so contributor test-runner chores (<button type="button" class="issue-pill-btn" data-inspect="6147">#6147</button>), routine driver modernization (<button type="button" class="issue-pill-btn" data-inspect="3451">#3451</button>), and code-rationale questions (<button type="button" class="issue-pill-btn" data-inspect="5581">#5581</button>) never distort pillar metrics.
+              </div>
+              <button type="button" class="text-action-link" data-chart-pillar="Uncategorized">Filter 3 &rarr;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW DEDICATED SECTION: Objective Priority Signals by Pillar (Bias-Free Escalation Cues) -->
+        <div class="section-block" id="priority-signals-section">
+          <div class="section-head">
+            <div>
+              <h3 class="section-title">Objective Priority Signals by Pillar (Bias-Free Escalation Cues)</h3>
+              <p class="chart-sub">What observable cues make a newly arrived, unlabeled issue an automatic intra-pillar priority—independent of maintainer pet engines, personal preferences, or current sprint staffing.</p>
+            </div>
+            <button type="button" class="btn-control" id="btn-open-priority-slide">Open Slide 9 (Priority Rubric)</button>
+          </div>
+
+          <div class="priority-signals-grid">
+            <!-- Pillar 1 Priority Gate: Reliability -->
+            <div class="priority-card" style="border-inline-start-color:var(--rel-bar);">
+              <div class="priority-card-top">
+                <span class="pillar-tag pillar-Reliability">Reliability Escalation Gate</span>
+                <span class="conf-tag">Silent Wrong State &gt; Loud Crash</span>
+              </div>
+              <h4 class="priority-gate-title">Escalate immediately when <code>plan</code>, <code>run</code>, or audits exit green while corrupting data or history</h4>
+              <p class="priority-bias-note">
+                <strong>Bias neutralized:</strong> Prevents loud stack traces in popular adapters from crowding out calm, unlabeled reports (often filed as <code>Improvement</code>) where downstream tables silently go wrong.
+              </p>
+              <ul class="priority-cue-list">
+                <li><strong>Zero-error row/column/precision loss:</strong> <span class="sub-detail">Cues like <code>silently dropped</code>, <code>silent data loss</code>, <code>overrides insert_quorum</code>, or type inference running before declared <code>MODEL columns(...)</code>.</span></li>
+                <li><strong>False-green verification gates:</strong> <span class="sub-detail">Built-in audits or <code>table_diff</code> passing on empty/mismatched tables (<code>passes on empty table</code>, <code>GROUP BY 1</code> with <code>0</code> rows, key truncation).</span></li>
+                <li><strong>Irreversible history wipe or multi-user lock/hang:</strong> <span class="sub-detail">SCD Type 2 <code>COALESCE</code>/<code>truncate=True</code> overwriting closed intervals, concurrent <code>plan</code> duplicate rows, or exponential <code>O(2^n)</code> loader hangs.</span></li>
+              </ul>
+              <div class="priority-contrast-row">
+                <div><strong>Standard queue (non-automatic):</strong> Deterministic compile/parse errors that fail loudly with an immediate SQL workaround.</div>
+                <div>
+                  <strong>Unlabeled / under-labeled matches:</strong>
+                  <button type="button" class="issue-pill-btn" data-inspect="6087">#6087</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6171">#6171</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6212">#6212</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6135">#6135</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6198">#6198</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5757">#5757</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6203">#6203</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 2 Priority Gate: Scalability -->
+            <div class="priority-card" style="border-inline-start-color:var(--sca-bar);">
+              <div class="priority-card-top">
+                <span class="pillar-tag pillar-Scalability">Scalability Escalation Gate</span>
+                <span class="conf-tag">Super-Linear Cliffs &gt; Micro-Tuning</span>
+              </div>
+              <h4 class="priority-gate-title">Escalate immediately when everyday commands scale with <em>total repo size</em> or <code>O(N²)</code> loops instead of diff size</h4>
+              <p class="priority-bias-note">
+                <strong>Bias neutralized:</strong> Prevents contributors testing on 20-model local projects from dismissing quadratic cliffs that paralyze 1,000+-model production monorepos.
+              </p>
+              <ul class="priority-cue-list">
+                <li><strong>Measured <code>O(N²)</code> pure-Python stalls:</strong> <span class="sub-detail">Flamegraphs/profiles showing Python worker saturation while warehouse queries finish in <code>1–2s</code> and <code>concurrent_tasks</code> gives zero speedup.</span></li>
+                <li><strong>Full-DAG load for single-model inner loops:</strong> <span class="sub-detail">Cues like <code>loads entire project</code>, <code>every non-prod plan</code>, or single-file <code>render</code>/<code>test</code>/<code>format</code> parsing thousands of unrelated models.</span></li>
+                <li><strong>Order-of-magnitude scan/insert amplification:</strong> <span class="sub-detail">Batched <code>VALUES</code> inserts or full-table scans where engine-native bulk/partition APIs (<code>COPY</code>, <code>copy_partitions</code>, <code>TABLESAMPLE</code>) eliminate TB-scale I/O.</span></li>
+              </ul>
+              <div class="priority-contrast-row">
+                <div><strong>Standard queue (non-automatic):</strong> Minor constant-factor speedups or ergonomic config defaults that do not change asymptotic scaling.</div>
+                <div>
+                  <strong>Unlabeled / under-labeled matches:</strong>
+                  <button type="button" class="issue-pill-btn" data-inspect="6014">#6014</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6018">#6018</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6019">#6019</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5906">#5906</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5905">#5905</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5830">#5830</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5655">#5655</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 3 Priority Gate: Adoption -->
+            <div class="priority-card" style="border-inline-start-color:var(--ado-bar);">
+              <div class="priority-card-top">
+                <span class="pillar-tag pillar-Adoption">Adoption Escalation Gate</span>
+                <span class="conf-tag">Hard Institutional Veto &gt; Polish</span>
+              </div>
+              <h4 class="priority-gate-title">Escalate immediately when security policy, token lifetimes, or ecosystem contracts block rollout with no SQL workaround</h4>
+              <p class="priority-bias-note">
+                <strong>Bias neutralized:</strong> Prevents local-token dev workflows from under-weighting enterprise IAM rules, DBA governance gates, or <code>dbt</code> downstream contracts that veto production cutover.
+              </p>
+              <ul class="priority-cue-list">
+                <li><strong>Mandatory IAM / token-refresh walls:</strong> <span class="sub-detail">Passwordless cloud auth mandates (<code>Entra ID</code>) or static tokens expiring mid-run (<code>&gt;1h</code> OAuth M2M client-credentials refresh).</span></li>
+                <li><strong>Downstream platform / DBA deployment vetoes:</strong> <span class="sub-detail">Missing <code>manifest.json</code> breaking existing catalog/BI pipelines, <code>dbt_expectations</code> Jinja syntax failures, or 3-part naming rejected by <code>SqlPackage</code>.</span></li>
+                <li><strong>Blind multi-model failure attribution:</strong> <span class="sub-detail">Warehouse driver errors surfaced without the failing model name across multi-hundred-model runs.</span></li>
+              </ul>
+              <div class="priority-contrast-row">
+                <div><strong>Standard queue (non-automatic):</strong> Optional CLI flags, syntax sugar, or tutorial requests where documented workarounds exist.</div>
+                <div>
+                  <strong>Unlabeled / under-labeled matches:</strong>
+                  <button type="button" class="issue-pill-btn" data-inspect="5066">#5066</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5183">#5183</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5821">#5821</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="4741">#4741</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5295">#5295</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="6064">#6064</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 4 Priority Gate: Extensibility -->
+            <div class="priority-card" style="border-inline-start-color:var(--ext-bar);">
+              <div class="priority-card-top">
+                <span class="pillar-tag pillar-Extensibility">Extensibility Escalation Gate</span>
+                <span class="conf-tag">Active Fork Pressure &gt; Speculation</span>
+              </div>
+              <h4 class="priority-gate-title">Escalate immediately when production teams must fork SQLMesh or subclass <code>EngineAdapter</code> to bypass hardcoded behavior</h4>
+              <p class="priority-bias-note">
+                <strong>Bias neutralized:</strong> Counteracts the 93.3% unrouted blind spot where small config/hook seams look "niche" even though they force committed adopters onto private forks.
+              </p>
+              <ul class="priority-cue-list">
+                <li><strong>Explicit fork or subclassing testimony:</strong> <span class="sub-detail">Cues like <code>manually forking the repository</code> or <code>overridden EngineAdapter</code> just to customize state storage or DDL hooks.</span></li>
+                <li><strong>Hardcoded DDL blocked by enterprise DBAs:</strong> <span class="sub-detail">Unconditional <code>CREATE SCHEMA</code> calls lacking a <code>create_schemas: false</code> config in pre-provisioned warehouses.</span></li>
+                <li><strong>Multi-vendor standard interfaces:</strong> <span class="sub-detail">Open specs (Arrow ADBC drivers, OpenMetadata, lifecycle notification events) that replace N bespoke integrations with one contract.</span></li>
+              </ul>
+              <div class="priority-contrast-row">
+                <div><strong>Standard queue (non-automatic):</strong> Hypothetical plugin surfaces without an active blocked integration or fork burden.</div>
+                <div>
+                  <strong>Unlabeled / under-labeled matches:</strong>
+                  <button type="button" class="issue-pill-btn" data-inspect="5600">#5600</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5623">#5623</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5814">#5814</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="5865">#5865</button>
+                  <button type="button" class="issue-pill-btn" data-inspect="3565">#3565</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2187,7 +2843,7 @@
         <div class="section-block">
           <div class="section-head">
             <h3 class="section-title">Interactive Backlog Charts &amp; Alignment Telemetry</h3>
-            <button type="button" class="text-action-link" data-jump-view="labels">Inspect full 32-label alignment table</button>
+            <button type="button" class="text-action-link" data-jump-view="labels">Inspect full 32-label alignment table &rarr;</button>
           </div>
           <div class="charts-grid">
             <!-- SVG Chart 1 -->
@@ -2246,26 +2902,7 @@
           </div>
         </div>
 
-        <!-- Executive Summary -->
-        <div class="section-block">
-          <div class="section-head">
-            <h3 class="section-title">Executive Summary</h3>
-            <a href="./README.md" class="text-action-link" data-open-md="README.md">Read in README.md</a>
-          </div>
-          <div class="prose-card" id="exec-summary-box">
-            <p class="prose-measure">
-              <a href="https://github.com/SQLMesh/sqlmesh" target="_blank" rel="noopener" class="text-action-link">SQLMesh/sqlmesh</a> holds <strong>211 open issues</strong> (excluding 106 open PRs) as of November 20, 2026, and <strong>Reliability accounts for half the backlog at 50.7% (107 issues)</strong>—including critical silent data-loss defects in ClickHouse table swaps (<button type="button" class="text-action-link" data-inspect="6087">#6087</button>), ClickHouse quorum overwrites (<button type="button" class="text-action-link" data-inspect="6171">#6171</button>), <code>UNION BY NAME</code> column drops (<button type="button" class="text-action-link" data-inspect="6212">#6212</button>), <code>SEED</code> CSV type inference (<button type="button" class="text-action-link" data-inspect="6135">#6135</button>), and <code>at_least_one</code> audit false passes (<button type="button" class="text-action-link" data-inspect="6198">#6198</button>).
-              <strong>Adoption represents 24.6% (52 primary issues)</strong> and appears as a secondary driver on 69 more (57.3% total touch rate), led by dbt Jinja/ecosystem bridges (<button type="button" class="text-action-link" data-inspect="5295">#5295</button>, <button type="button" class="text-action-link" data-inspect="5821">#5821</button>), enterprise auth/naming rules (<button type="button" class="text-action-link" data-inspect="4741">#4741</button>, <button type="button" class="text-action-link" data-inspect="5066">#5066</button>, <button type="button" class="text-action-link" data-inspect="5955">#5955</button>), and scenario walkthrough gaps (<button type="button" class="text-action-link" data-inspect="4108">#4108</button>, <button type="button" class="text-action-link" data-inspect="5580">#5580</button>).
-            </p>
-            <p class="prose-measure">
-              <strong>Scalability makes up 16.1% (34 primary issues)</strong>, anchored by an architectural bottleneck where non-prod <code>plan</code>, <code>render</code>, <code>test</code>, and <code>format</code> load the full repository (<button type="button" class="text-action-link" data-inspect="5905">#5905</button>, <button type="button" class="text-action-link" data-inspect="5906">#5906</button>, <button type="button" class="text-action-link" data-inspect="6020">#6020</button>) and pure-Python virtual-layer promotion runs in <code>O(N²)</code>—stalling 2,400-view BigQuery dev plans for 40–50 minutes (<button type="button" class="text-action-link" data-inspect="6014">#6014</button>).
-              <strong>Extensibility is 7.1% (15 issues)</strong>—covering SQL macros (<button type="button" class="text-action-link" data-inspect="2505">#2505</button>), Ossie semantic-layer generation (<button type="button" class="text-action-link" data-inspect="5997">#5997</button>), ADBC drivers (<button type="button" class="text-action-link" data-inspect="5814">#5814</button>), and config hooks that avoid forking <code>EngineAdapter</code> (<button type="button" class="text-action-link" data-inspect="5600">#5600</button>, <button type="button" class="text-action-link" data-inspect="5623">#5623</button>)—while <strong>3 issues (1.4%)</strong> are genuinely <strong>Uncategorized</strong> (<button type="button" class="text-action-link" data-inspect="3451">#3451</button>, <button type="button" class="text-action-link" data-inspect="5581">#5581</button>, <button type="button" class="text-action-link" data-inspect="6147">#6147</button>).
-              Because 18 of 23 existing routing labels slice orthogonally by warehouse adapter and post-Linux-Foundation unlabeled intake hit 50.0% (79.3% since August 2026), maintainers should add a required <strong>Primary Pillar</strong> Project field, retire 4 dead/vague tags, and introduce <code>data-correctness</code>, <code>core: planner-state</code>, and <code>ecosystem-integration</code>.
-            </p>
-          </div>
-        </div>
-
-        <!-- Explicit Scope & Assumptions -->
+        <!-- Explicit Scope & Assumptions (Symmetric 2x2 Grid) -->
         <div class="section-block">
           <div class="section-head">
             <h3 class="section-title">Scope &amp; Explicit Assumptions</h3>
@@ -2287,6 +2924,7 @@
             </p>
           </div>
           <div class="header-actions">
+            <button type="button" class="btn-control primary" id="btn-jump-priority-signals">Objective Priority Signals</button>
             <a href="./02-cue-rubric.md" class="btn-control" data-open-md="02-cue-rubric.md">Open 02-cue-rubric.md</a>
             <a href="./03-pillar-catalog.md" class="btn-control" data-open-md="03-pillar-catalog.md">Open 03-pillar-catalog.md</a>
           </div>
@@ -2384,7 +3022,7 @@
             <h3 class="section-title">Three Proposed High-Signal Labels (Filling Uncaptured Pillar Gaps)</h3>
             <a href="./04-alignment-and-recommendations.md#proposed-labels" class="text-action-link" data-open-md="04-alignment-and-recommendations.md">Details in 04-alignment-and-recommendations.md</a>
           </div>
-          <div class="assumptions-grid" id="proposed-labels-grid"></div>
+          <div class="assumptions-grid three-up" id="proposed-labels-grid"></div>
         </div>
 
         <div class="section-block">
@@ -2541,7 +3179,7 @@
 
   
   <!-- ======================================================================
-       HTML-PPT STUDIO SLIDE MODE OVERLAY (9-Slide Maintainer Cataloging & Triage Story)
+       HTML-PPT STUDIO SLIDE MODE OVERLAY (10-Slide Maintainer Cataloging & Priority Story)
        ====================================================================== -->
   <div class="slide-deck-overlay" id="slide-deck-overlay" data-theme="engineering-whiteprint" data-anim="fade-up" role="region" aria-label="Engineering Presentation Slide Mode">
     <div class="deck-progress-track" aria-hidden="true">
@@ -2564,7 +3202,7 @@
           <span>Anim: <strong id="deck-anim-name">fade-up</strong></span>
           <span class="deck-kbd">A</span>
         </button>
-        <button type="button" class="deck-btn" id="btn-deck-overview" title="Toggle 9-slide overview grid (Shortcut: O)">
+        <button type="button" class="deck-btn" id="btn-deck-overview" title="Toggle 10-slide overview grid (Shortcut: O)">
           <span>Overview</span>
           <span class="deck-kbd">O</span>
         </button>
@@ -3009,8 +3647,54 @@
         </aside>
       </section>
 
-      <!-- SLIDE 9: SHARED TRIAGE WORKFLOW & OPEN QUESTIONS -->
-      <section class="slide" data-slide-idx="8" data-chapter="09 / Maintainer Playbook" data-title="A 30-Second Intake Rubric & 4 Open Questions for Maintainer Consensus" data-layout="roadmap">
+
+      <!-- SLIDE 9: OBJECTIVE PRIORITY SIGNALS BY PILLAR -->
+      <section class="slide" data-slide-idx="8" data-chapter="09 / Priority Signals" data-title="What Makes an Untriaged Issue an Automatic Priority Within Each Pillar?" data-layout="kpi-grid">
+        <div class="slide-head anim-in">
+          <div class="slide-tag-row">
+            <span class="slide-act-tag">BIAS-FREE ESCALATION RUBRIC</span>
+            <span class="slide-layout-tag">Objective intra-pillar severity cues · Independent of pet adapters or current bandwidth</span>
+          </div>
+          <h2 class="slide-h2">Cues That Make an Untriaged Issue an Automatic Priority in Its Pillar</h2>
+          <p class="slide-lead">
+            Even before the team schedules sprints or weighs capacity, maintainers need <strong>objective escalation cues</strong> so unlabeled high-risk arrivals aren't buried by personal familiarity or adapter preference:
+          </p>
+        </div>
+
+        <div class="slide-grid-2 anim-in anim-d1">
+          <div class="slide-card alert-card" style="gap:7px;padding:15px 18px;">
+            <h3><span>Reliability Gate: Silent Wrong State &gt; Loud Crash</span><span class="slide-layout-tag">Data Integrity</span></h3>
+            <p><strong>Look for:</strong> <code>plan</code>/<code>run</code>/audits exiting green while dropping columns, mutating types, overwriting SCD2 history, or hanging exponentially—even when filed as <code>Improvement</code>.</p>
+            <p style="font-size:0.81rem;"><strong>Cues &amp; proof:</strong> <code>silently dropped</code> (<button type="button" class="slide-issue-btn" data-inspect="6212">#6212</button>), swallowed swap/quorum loss (<button type="button" class="slide-issue-btn" data-inspect="6087">#6087</button>, <button type="button" class="slide-issue-btn" data-inspect="6171">#6171</button>), pre-cast <code>SEED</code> inference (<button type="button" class="slide-issue-btn" data-inspect="6135">#6135</button>), 0-row audit pass (<button type="button" class="slide-issue-btn" data-inspect="6198">#6198</button>), SCD2 <code>COALESCE</code> (<button type="button" class="slide-issue-btn" data-inspect="5757">#5757</button>).</p>
+          </div>
+
+          <div class="slide-card" style="gap:7px;padding:15px 18px;border-inline-start:4px solid var(--deck-sca);">
+            <h3><span>Scalability Gate: Super-Linear Cliffs &gt; Micro-Tuning</span><span class="slide-layout-tag">Asymptotic Cost</span></h3>
+            <p><strong>Look for:</strong> Everyday commands scaling with <em>total repository size</em> or <code>O(N²)</code> Python loops rather than diff size, neutralising small-repo contributor bias.</p>
+            <p style="font-size:0.81rem;"><strong>Cues &amp; proof:</strong> <code>O(N²)</code> pure-Python stalls where <code>concurrent_tasks</code> fails (<button type="button" class="slide-issue-btn" data-inspect="6014">#6014</button>, <button type="button" class="slide-issue-btn" data-inspect="6018">#6018</button>, <button type="button" class="slide-issue-btn" data-inspect="6019">#6019</button>), <code>loads entire project</code> on dev <code>plan</code>/<code>render</code> (<button type="button" class="slide-issue-btn" data-inspect="5906">#5906</button>, <button type="button" class="slide-issue-btn" data-inspect="5905">#5905</button>), bulk <code>COPY</code>/partition APIs (<button type="button" class="slide-issue-btn" data-inspect="5830">#5830</button>, <button type="button" class="slide-issue-btn" data-inspect="5655">#5655</button>).</p>
+          </div>
+
+          <div class="slide-card" style="gap:7px;padding:15px 18px;border-inline-start:4px solid var(--deck-ado);">
+            <h3><span>Adoption Gate: Hard Veto &gt; Ergonomic Polish</span><span class="slide-layout-tag">Zero Workaround</span></h3>
+            <p><strong>Look for:</strong> Enterprise IAM mandates, mid-run token expirations, DBA deployment rules, or downstream artifact contracts with <em>zero SQL workaround</em>.</p>
+            <p style="font-size:0.81rem;"><strong>Cues &amp; proof:</strong> Passwordless <code>Entra ID</code> (<button type="button" class="slide-issue-btn" data-inspect="5066">#5066</button>), <code>&gt;1h</code> OAuth refresh (<button type="button" class="slide-issue-btn" data-inspect="5183">#5183</button>), downstream <code>manifest.json</code> contract (<button type="button" class="slide-issue-btn" data-inspect="5821">#5821</button>), <code>SqlPackage</code> 2-part views (<button type="button" class="slide-issue-btn" data-inspect="4741">#4741</button>), driver errors omitting model name (<button type="button" class="slide-issue-btn" data-inspect="6064">#6064</button>).</p>
+          </div>
+
+          <div class="slide-card" style="gap:7px;padding:15px 18px;border-inline-start:4px solid var(--deck-ext);">
+            <h3><span>Extensibility Gate: Active Fork Pressure &gt; Speculation</span><span class="slide-layout-tag">Prevent Forks</span></h3>
+            <p><strong>Look for:</strong> Production teams maintaining a private fork or subclassing <code>EngineAdapter</code> because a narrow config/hook/driver seam is hardcoded.</p>
+            <p style="font-size:0.81rem;"><strong>Cues &amp; proof:</strong> Subclassing for Snowflake Hybrid state (<button type="button" class="slide-issue-btn" data-inspect="5600">#5600</button>), DBA-blocked <code>CREATE SCHEMA</code> needing <code>create_schemas: false</code> (<button type="button" class="slide-issue-btn" data-inspect="5623">#5623</button>), open multi-vendor specs like Arrow ADBC (<button type="button" class="slide-issue-btn" data-inspect="5814">#5814</button>) &amp; OpenMetadata (<button type="button" class="slide-issue-btn" data-inspect="3565">#3565</button>).</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          <p>Once we categorize an incoming issue into a Strategic Pillar and a Triage Label, a natural question comes up: what makes a brand-new, unlabeled issue jump to the front of its pillar—without relying on whose favorite warehouse it touches or who happens to have spare cycles?</p>
+          <p>These four escalation gates strip out personal bias. In <strong>Reliability</strong>, silent wrong data and false-green audits always outrank loud stack traces, even if the reporter calmly tagged it <code>Improvement</code>. In <strong>Scalability</strong>, quadratic Python loops and full-repo loads on single-model commands outrank micro-optimizations that small-repo devs notice first. In <strong>Adoption</strong>, zero-workaround enterprise IAM, token-refresh walls, and <code>manifest.json</code> cutover blockers outrank syntax sugar. And in <strong>Extensibility</strong>, explicit evidence that a production team had to fork SQLMesh or subclass <code>EngineAdapter</code> outranks speculative plugin ideas.</p>
+        </aside>
+      </section>
+
+      <!-- SLIDE 10: SHARED TRIAGE WORKFLOW & OPEN QUESTIONS -->
+      <section class="slide" data-slide-idx="9" data-chapter="10 / Maintainer Playbook" data-title="A 30-Second Intake Rubric & 4 Open Questions for Maintainer Consensus" data-layout="roadmap">
         <div class="slide-head anim-in">
           <div class="slide-tag-row">
             <span class="slide-act-tag">TEAM WORKFLOW &amp; ALIGNMENT</span>
@@ -3059,7 +3743,7 @@
       <!-- O-Key Slide Overview Modal -->
       <div class="deck-overview-modal" id="deck-overview-modal" aria-label="Slide overview grid">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
-          <h3 style="margin:0;font-size:1.1rem;">Slide Overview (9 Slides — Click any card to jump)</h3>
+          <h3 style="margin:0;font-size:1.1rem;">Slide Overview (10 Slides — Click any card to jump)</h3>
           <button type="button" class="deck-btn" id="btn-close-overview">Close Overview (Esc)</button>
         </div>
         <div class="overview-grid" id="deck-overview-grid"></div>
@@ -3070,7 +3754,7 @@
         <div class="p-card">
           <div class="p-card-head">
             <span><span class="p-dot" style="background:#38BDF8;"></span>CURRENT SLIDE</span>
-            <span id="p-cur-meta">Slide 1 / 9</span>
+            <span id="p-cur-meta">Slide 1 / 10</span>
           </div>
           <div class="p-card-body" id="p-cur-preview"></div>
         </div>
@@ -3126,7 +3810,7 @@
     <footer class="deck-footer">
       <div class="deck-nav-cluster">
         <button type="button" class="deck-btn" id="btn-slide-prev" aria-label="Previous slide">Prev</button>
-        <span class="slide-number" id="deck-slide-counter">1 / 9</span>
+        <span class="slide-number" id="deck-slide-counter">1 / 10</span>
         <button type="button" class="deck-btn" id="btn-slide-next" aria-label="Next slide">Next</button>
       </div>
       <div>
@@ -4249,6 +4933,14 @@
       // Launch & Control Buttons
       document.getElementById("btn-launch-slides-sidebar").addEventListener("click", function () { openSlideMode(currentSlideIdx); });
       document.getElementById("btn-launch-slides-top").addEventListener("click", function () { openSlideMode(0); });
+      var prioSlideBtn = document.getElementById("btn-open-priority-slide");
+      if (prioSlideBtn) prioSlideBtn.addEventListener("click", function () { openSlideMode(8); });
+      var jumpPrioBtn = document.getElementById("btn-jump-priority-signals");
+      if (jumpPrioBtn) jumpPrioBtn.addEventListener("click", function () {
+        switchView("overview");
+        var sec = document.getElementById("priority-signals-section");
+        if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
       document.getElementById("btn-exit-slides").addEventListener("click", closeSlideMode);
       document.getElementById("btn-slide-prev").addEventListener("click", function () { gotoSlide(currentSlideIdx - 1, true); });
       document.getElementById("btn-slide-next").addEventListener("click", function () { gotoSlide(currentSlideIdx + 1, true); });
